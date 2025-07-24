@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <div className='container max-w-4xl mx-auto py-8 space-y-8'>
-      <div className='flex items-center justify-center space-y-4 gap-8'>
+      <div className='flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left'>
         <Image
           src={currentImage}
           alt='Gabriel da Silva Borges'
