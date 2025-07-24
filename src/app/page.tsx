@@ -6,8 +6,10 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import Card, { CardTitle } from '@components/ui/Card';
 import Badge from '@components/ui/Badge';
 import Separator from '@components/ui/Separator';
+import { useState } from 'react';
 
 export default function Home() {
+  const [currentImage, setCurrentImage] = useState('/borges.png');
   const { t } = useTranslation();
   const skills = [
     t('skills.typescript'),
@@ -44,11 +46,12 @@ export default function Home() {
     <div className='container max-w-4xl mx-auto py-8 space-y-8'>
       <div className='flex items-center justify-center space-y-4 gap-8'>
         <Image
-          src='/borges.png'
+          src={currentImage}
           alt='Gabriel da Silva Borges'
           width={300}
           height={300}
           className='rounded-full w-50 h-50 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105'
+          onClick={() => setCurrentImage(currentImage === '/borges.png' ? '/borges_drawing.png' : '/borges.png')}
         />
 
         <div className='flex flex-col space-y-2'>

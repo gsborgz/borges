@@ -12,6 +12,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
   title: 'Gabriel Borges',
   description: 'Gabriel Borges - CV',
+  icons: {
+    icon: '/borges_drawing.png'
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
