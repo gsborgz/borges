@@ -13,7 +13,7 @@ export const metadata = {
   title: 'Gabriel Borges',
   description: 'Gabriel Borges - CV',
   icons: {
-    icon: '/borges_drawing.png'
+    icon: '/borges_icon.png'
   }
 };
 
