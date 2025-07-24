@@ -4,8 +4,10 @@ import { usePathname, useRouter } from 'next/navigation';
 import ThemeToggle from '@components/ThemeToggle';
 import { LanguageToggle } from '@components/LanguageToggle';
 import { Button } from '@components/ui/Button';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
+  const { t } = useTranslation();
   const currentRoute = usePathname();
   const router = useRouter();
   const isHome = currentRoute === '/';
@@ -23,11 +25,11 @@ export default function Header() {
     <HeaderBar>
       <div className='flex items-center justify-start gap-2 px-4 py-3'>
         <Button variant="default" primary={isHome} onClick={handleNavigateHome}>
-          Home
+          {t('home')}
         </Button>
 
         <Button variant="default" primary={isProjects} onClick={handleNavigateProjects}>
-          Projects
+          {t('projects')}
         </Button>
       </div>
 

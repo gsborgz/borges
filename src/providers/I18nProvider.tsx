@@ -10,7 +10,6 @@ interface I18nProviderProps {
 
 export function I18nProvider({ children }: I18nProviderProps) {
   useEffect(() => {
-    // Ensure i18n is initialized
     if (!i18n.isInitialized) {
       i18n.init();
     }

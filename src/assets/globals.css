@@ -5,3 +5,13 @@
 body {
   margin: 0px !important;
 }
+
+@layer components {
+  .text-primary {
+    @apply text-slate-700 dark:text-slate-100;
+  }
+
+  .text-secondary {
+    @apply text-slate-500 dark:text-slate-400;
+  }
+}

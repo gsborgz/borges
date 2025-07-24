@@ -5,10 +5,10 @@ import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Card, { CardText, CardTitle } from "@components/ui/Card";
 import Badge from "@components/ui/Badge";
+import Separator from "@components/ui/Separator";
 
 export default function Home() {
   const { t } = useTranslation();
-
   const skills = [
     t('skills.typescript'),
     t('skills.python'),
@@ -19,6 +19,26 @@ export default function Home() {
     t('skills.react'),
     t('skills.postgres'),
   ];
+  const experiences = [
+    {
+      company: t('experiences.baseb.company'),
+      role: t('experiences.baseb.role'),
+      period: t('experiences.baseb.period'),
+      description: t('experiences.baseb.description'),
+    },
+    {
+      company: t('experiences.sofit.company'),
+      role: t('experiences.sofit.role'),
+      period: t('experiences.sofit.period'),
+      description: t('experiences.sofit.description'),
+    },
+    {
+      company: t('experiences.rotaexata.company'),
+      role: t('experiences.rotaexata.role'),
+      period: t('experiences.rotaexata.period'),
+      description: t('experiences.rotaexata.description'),
+    },
+  ];
 
   return (
     <div className="container max-w-4xl mx-auto py-8 space-y-8">
@@ -28,12 +48,12 @@ export default function Home() {
           alt="Gabriel da Silva Borges"
           width={300}
           height={300}
-          className="rounded-4xl w-50 h-50"
+          className="rounded-full w-50 h-50"
         />
 
         <div className="flex flex-col space-y-2">
-          <h1 className="text-4xl font-bold tracking-tight">GABRIEL DA SILVA BORGES</h1>
-          <p className="text-xl text-muted-foreground font-medium">{t('role')}</p>
+          <h1 className="text-4xl font-bold tracking-tight text-primary">GABRIEL DA SILVA BORGES</h1>
+          <p className="text-xl text-muted-foreground font-medium text-secondary">{t('role')}</p>
         </div>
       </div>
 
@@ -81,7 +101,29 @@ export default function Home() {
         <div className="md:col-span-2 space-y-6">
           <Card>
             <CardTitle>{t('summary.title')}</CardTitle>
-            <CardText>{t('summary.description')}</CardText>
+            <CardText className="text-secondary">{t('summary.description')}</CardText>
+          </Card>
+
+          <Card>
+            <CardTitle className="text-lg">{t('experiences.title')}</CardTitle>
+
+            <div className="space-y-6">
+              {experiences.map((exp, index) => (
+                <div key={index}>
+                  <div className="space-y-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                      <h3 className="font-semibold text-primary">{exp.company}</h3>
+                      <span className={`text-sm text-muted-foreground text-secondary`}>{exp.period}</span>
+                    </div>
+                    <p className={`text-sm font-medium text-muted-foreground text-secondary`}>{exp.role}</p>
+                    <p className={`text-sm leading-relaxed text-muted-foreground text-secondary`}>
+                      {exp.description}
+                    </p>
+                  </div>
+                  {index < experiences.length - 1 && <Separator className="mt-6" />}
+                </div>
+              ))}
+            </div>
           </Card>
         </div>
       </div>

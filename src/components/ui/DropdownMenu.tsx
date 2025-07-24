@@ -69,7 +69,7 @@ function DropdownMenu({ children }: DropdownMenuProps) {
 
   return (
     <DropdownMenuContext.Provider value={{ open, setOpen }}>
-      <div className="relative" data-dropdown-menu>
+      <div className='relative' data-dropdown-menu>
         {children}
       </div>
     </DropdownMenuContext.Provider>
@@ -93,10 +93,10 @@ function DropdownMenuTrigger({ asChild, children }: DropdownMenuTriggerProps) {
 
   return (
     <button
-      type="button"
+      type='button'
       onClick={handleClick}
       aria-expanded={open}
-      aria-haspopup="menu"
+      aria-haspopup='menu'
     >
       {children}
     </button>
@@ -114,7 +114,7 @@ const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenuContent
     <div
       ref={ref}
       className={concatClassNames(
-        "absolute top-full mt-1 z-50 min-w-[8rem] overflow-hidden rounded-md border border-slate-400 dark:bg-slate-950 bg-slate-50 dark:text-slate-50 text-slate-950 p-1",
+        'absolute top-full mt-1 z-50 min-w-[8rem] overflow-hidden rounded-md border border-slate-400 dark:bg-slate-950 bg-slate-50 dark:text-slate-50 text-slate-950 p-1',
         alignClass,
         className
       )}
@@ -124,7 +124,7 @@ const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenuContent
   );
 });
 
-DropdownMenuContent.displayName = "DropdownMenuContent";
+DropdownMenuContent.displayName = 'DropdownMenuContent';
 
 const DropdownMenuItem = React.forwardRef<HTMLDivElement, DropdownMenuItemProps>(({ children, className, onClick, ...props }, ref) => {
   const { setOpen } = useDropdownMenu();
@@ -138,7 +138,7 @@ const DropdownMenuItem = React.forwardRef<HTMLDivElement, DropdownMenuItemProps>
     <div
       ref={ref}
       className={concatClassNames(
-        "flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors text-slate-950 dark:text-slate-50 hover:bg-slate-300 dark:hover:bg-slate-700 focus:bg-slate-300 dark:focus:bg-slate-700",
+        'flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors text-slate-950 dark:text-slate-50 hover:bg-slate-300 dark:hover:bg-slate-700 focus:bg-slate-300 dark:focus:bg-slate-700',
         className
       )}
       onClick={handleClick}
@@ -149,7 +149,7 @@ const DropdownMenuItem = React.forwardRef<HTMLDivElement, DropdownMenuItemProps>
   );
 });
 
-DropdownMenuItem.displayName = "DropdownMenuItem";
+DropdownMenuItem.displayName = 'DropdownMenuItem';
 
 export {
   DropdownMenu,

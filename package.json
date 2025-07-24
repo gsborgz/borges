@@ -17,6 +17,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@next/env": "^15.4.3",
     "@tailwindcss/postcss": "^4.1.11",
     "i18next": "^25.3.2",
     "lucide-react": "^0.525.0",

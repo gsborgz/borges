@@ -54,12 +54,12 @@ export function LanguageToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Languages className="h-4 w-4 text-gray-950 dark:text-gray-50" />
-          <span className="sr-only">Toggle language</span>
+        <Button variant='ghost' size='icon'>
+          <Languages className='h-4 w-4 text-gray-950 dark:text-gray-50' />
+          <span className='sr-only'>Toggle language</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align='end'>
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
