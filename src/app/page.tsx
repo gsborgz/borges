@@ -60,24 +60,6 @@ export default function Home() {
       <div className='grid gap-8 md:grid-cols-3'>
         <div className='space-y-6'>
           <Card>
-            <CardTitle>{t('contact.title')}</CardTitle>
-            <div className='space-y-3'>
-              <div className='flex items-center gap-3 text-sm'>
-                <Phone className='h-4 w-4 text-muted-foreground' />
-                <p className='text-primary'>{t('contact.phone')}</p>
-              </div>
-              <div className='flex items-center gap-3 text-sm'>
-                <Mail className='h-4 w-4 text-muted-foreground' />
-                <p className='break-all text-primary'>{t('contact.email')}</p>
-              </div>
-              <div className='flex items-start gap-3 text-sm'>
-                <MapPin className='h-4 w-4 text-muted-foreground mt-0.5' />
-                <p className='leading-relaxed text-primary'>{t('contact.address')}</p>
-              </div>
-            </div>
-          </Card>
-
-          <Card>
             <CardTitle>{t('skills.title')}</CardTitle>
             <div className='flex flex-wrap gap-2'>
               {skills.map((skill) => (
@@ -94,6 +76,24 @@ export default function Home() {
               <div className='text-sm text-primary'>{t('languageSkills.portuguese')}</div>
               <div className='text-sm text-primary'>{t('languageSkills.english')}</div>
               <div className='text-sm text-primary'>{t('languageSkills.french')}</div>
+            </div>
+          </Card>
+
+          <Card>
+            <CardTitle>{t('contact.title')}</CardTitle>
+            <div className='space-y-3 text-2xl'>
+              <div className='flex items-center gap-3 text-sm'>
+                <Phone className='h-3 w-3 text-muted-foreground' />
+                <p className='text-primary'>{t('contact.phone')}</p>
+              </div>
+              <div className='flex items-center gap-3 text-sm'>
+                <Mail className='h-3 w-3 text-muted-foreground' />
+                <p className='text-primary break-all'>{t('contact.email')}</p>
+              </div>
+              <div className='flex items-start gap-3 text-sm'>
+                <MapPin className='h-3 w-3 text-muted-foreground mt-0.5' />
+                <p className='leading-relaxed text-primary'>{t('contact.address')}</p>
+              </div>
             </div>
           </Card>
         </div>
