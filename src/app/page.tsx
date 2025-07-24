@@ -48,7 +48,7 @@ export default function Home() {
           alt='Gabriel da Silva Borges'
           width={300}
           height={300}
-          className='rounded-full w-50 h-50 border-4 border-primary/20 shadow-lg transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:scale-105'
+          className='rounded-full w-50 h-50 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105'
         />
 
         <div className='flex flex-col space-y-2'>
