@@ -10,8 +10,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@components/ui/DropdownMenu';
+import { useTranslation } from 'react-i18next';
 
 export function LanguageToggle() {
+  const { t } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState('pt');
 
   useEffect(() => {
