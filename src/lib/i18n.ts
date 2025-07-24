@@ -64,7 +64,7 @@ const resources = {
       role: 'Programmer',
       summary: {
         title: 'Professional Summary',
-        description: 'I have been working in web development for 6 years and I am always looking for more knowledge, whether in programming or in areas that have almost no relation to it. I accumulate experience with various technologies, although some of them are only in personal projects that I usually develop to learn and develop new skills.',
+        description: "I've been working in web development for six years, and I'm always looking for something new to learn, whether it's related to programming or not. I've gained experience with a variety of technologies, including some from personal projects that I do to learn and develop skills.",
       },
       contact: {
         title: 'Contact',
@@ -95,19 +95,19 @@ const resources = {
           company: 'BaseB',
           role: 'Full Stack Developer',
           period: 'Oct 2021 - Present',
-          description: 'I have been working on the development of part of the new version of the Base-B system, mainly using frameworks like NestJS and Angular. I have contributed to important projects such as Bid Management and Public Document Consultation. I also implemented unit and e2e tests using the native Node test runner.',
+          description: "Working with implementations on the Base-B system using frameworks like NestJS and Angular. I've worked on the development of important projects like BI, Bidding Management and Public Documents Consulting. I also implemented unit and e2e tests using node native test runner.",
         },
         sofit: {
           company: 'Sofit',
           role: 'Full Stack Developer',
           period: 'Jan 2021 - Sep 2021',
-          description: 'I worked on both the back-end and front-end of the SofitView system using the Ember.js and NestJS frameworks.',
+          description: 'Worked in bug fixes for both back-end and front-end projects, built with NestJS and Ember.js',
         },
         rotaexata: {
           company: 'RotaExata',
           role: 'Full Stack Developer',
           period: 'Mar 2019 - Dec 2020',
-          description: 'I worked on the development of part of the new version of the RotaExata system, using various technologies such as Node, Vue, Postgres, Mongo, etc. I also performed small tasks on the company\'s internal system, developed in PHP.',
+          description: 'Worked on the front-end of a new version for the RotaExata system, built with Vuejs and Vuetify. Also worked a little bit on the back-end for this new version, built with technologies like Node.js,Postgres and MongoDB.',
         }
       }
     },
@@ -119,7 +119,7 @@ const resources = {
       role: 'Programmeur',
       summary: {
         title: 'Résumé Professionnel',
-        description: 'Je travaille dans le développement web depuis 6 ans et je suis toujours à la recherche de nouvelles connaissances, que ce soit dans la programmation ou dans des domaines qui ont presque aucune relation avec cela. J’accumule des expériences avec diverses technologies, bien que certaines d’entre elles ne soient que dans des projets personnels que je développe généralement pour apprendre et développer de nouvelles compétences.',
+        description: "Je travaille dans le développement web depuis six ans et je suis constamment à la recherche de nouveles connaissances, que ce soit en programmation ou dans d'autres domaines. J’ai acquis de l’expérience avec diverses technologies, notamment à travers des projets personnels que je réalise pour apprendre et progresser.",
       },
       contact: {
         title: 'Contact',
@@ -148,21 +148,21 @@ const resources = {
         title: 'Expériences de Travail',
         baseb: {
           company: 'BaseB',
-          role: 'Full Stack Developer',
+          role: 'Développeur Full Stack',
           period: 'Oct. 2021 - Présent',
-          description: 'Je travaille sur le développement de la nouvelle version du système Base-B, principalement en utilisant des frameworks comme NestJS et Angular. J’ai contribué à des projets importants tels que la Gestion des Appels d’Offres et la Consultation de Documents Publics. J’ai également mis en œuvre des tests unitaires et e2e en utilisant le test runner natif de Node.',
+          description: "Participation au développement de fonctionnalités clés du système Base-B à l’aide de NestJS et Angular, incluant la BI, la gestion des appels d’offres et la consultation de documents publics. Mise en place de tests unitaires et end-to-end avec le test runner natif de Node.js.",
         },
         sofit: {
           company: 'Sofit',
-          role: 'Full Stack Developer',
+          role: 'Développeur Full Stack',
           period: 'Janv. 2021 - Sept. 2021',
-          description: 'Je travaille sur le développement de la nouvelle version du système SofitView, en utilisant les frameworks Ember.js et NestJS.',
+          description: 'Participation au développement backend et frontend du système SofitView avec NestJS et Ember.js, incluant correction de bugs et amélioration des fonctionnalités.',
         },
         rotaexata: {
           company: 'RotaExata',
-          role: 'Full Stack Developer',
+          role: 'Développeur Full Stack',
           period: 'Mars 2019 - Déc. 2020',
-          description: 'J’ai travaillé sur le développement de partie de la nouvelle version du système RotaExata, en utilisant diverses technologies telles que Node, Vue, Postgres, Mongo, etc. J’ai également effectué de petites tâches sur le système interne de l’entreprise, développé en PHP.',
+          description: "Travail sur le front-end d’une nouvelle version du système RotaExata avec Vue.js et Vuetify, ainsi qu’un peu sur le back-end utilisant Node.js, Postgres et MongoDB.",
         }
       }
     },
