@@ -43,7 +43,7 @@ export default function Header() {
 
 function HeaderBar({ children }: { children: React.ReactNode }) {
   return (
-    <header className='sticky flex items-center justify-between top-0 z-30 w-full h-16 !p-0 sm:px-4 border-b bg-slate-50 dark:bg-slate-950 border-slate-400'>
+    <header className='sticky flex items-center justify-between top-0 z-50 w-full !p-0 sm:px-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-slate-400'>
       {children}
     </header>
   );

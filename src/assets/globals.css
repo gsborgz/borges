@@ -11,7 +11,47 @@ body {
     @apply text-slate-700 dark:text-slate-100;
   }
 
+  .text-primary-reversed {
+    @apply text-slate-100 dark:text-slate-700;
+  }
+
   .text-secondary {
     @apply text-slate-500 dark:text-slate-400;
   }
+
+  .text-secondary-reversed {
+    @apply text-slate-400 dark:text-slate-500;
+  }
 }
+
+/* Custom Scrollbar - Cor uniforme para ambos os temas */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(226 232 240); /* slate-200 - neutro */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(100 116 139); /* slate-500 - neutro */
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(71 85 105); /* slate-600 - hover mais escuro */
+}
+
+::-webkit-scrollbar-corner {
+  background-color: rgb(226 232 240); /* slate-200 - neutro */
+}
+
+/* Firefox - cor uniforme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(100 116 139) rgb(226 232 240); /* slate-500 slate-200 */
+}
+

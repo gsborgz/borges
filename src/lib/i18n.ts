@@ -15,7 +15,7 @@ const resources = {
         title: 'Contato',
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
-        address: `Rua ${process.env.CONTACT_ADDRESS_STREET}, ${process.env.CONTACT_ADDRESS_NUMBER}, ${process.env.CONTACT_ADDRESS_CITY} - ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_ZIP}, ${process.env.CONTACT_ADDRESS_COUNTRY_PT}`,
+        address: `${process.env.CONTACT_ADDRESS_CITY}, ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_COUNTRY_PT}`,
       },
       skills: {
         title: 'Habilidades',
@@ -70,7 +70,7 @@ const resources = {
         title: 'Contact',
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
-        address: `${process.env.CONTACT_ADDRESS_NUMBER} ${process.env.CONTACT_ADDRESS_STREET} St., ${process.env.CONTACT_ADDRESS_CITY}, ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_COUNTRY_EN}, ${process.env.CONTACT_ADDRESS_ZIP}`,
+        address: `${process.env.CONTACT_ADDRESS_CITY}, ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_COUNTRY_EN}`,
       },
       skills: {
         title: 'Skills',
@@ -125,7 +125,7 @@ const resources = {
         title: 'Contact',
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
-        address: `${process.env.CONTACT_ADDRESS_NUMBER} Rue ${process.env.CONTACT_ADDRESS_STREET}, ${process.env.CONTACT_ADDRESS_CITY}, ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_COUNTRY_FR}, ${process.env.CONTACT_ADDRESS_ZIP}`,
+        address: `${process.env.CONTACT_ADDRESS_CITY}, ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_COUNTRY_FR}`,
       },
       skills: {
         title: 'Compétences',
