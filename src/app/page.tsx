@@ -50,13 +50,13 @@ export default function Home() {
           alt='Gabriel da Silva Borges'
           width={300}
           height={300}
-          className='rounded-full w-50 h-50 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105'
+          className='rounded-full w-50 h-50 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1'
           onClick={() => setCurrentImage(currentImage === '/borges.png' ? '/borges_drawing.png' : '/borges.png')}
         />
 
-        <div className='flex flex-col space-y-2'>
-          <h1 className='text-4xl font-bold tracking-tight text-primary'>GABRIEL DA SILVA BORGES</h1>
-          <p className='text-xl text-muted-foreground font-medium text-secondary'>{t('role')}</p>
+        <div className='cursor-default flex flex-col space-y-2'>
+          <h1 className='text-4xl font-bold tracking-tight text-primary transition-all duration-300 hover:-translate-y-1'>GABRIEL DA SILVA BORGES</h1>
+          <p className='text-xl text-muted-foreground font-medium text-secondary transition-all duration-300 hover:-translate-y-1 w-fit'>{t('role')}</p>
         </div>
       </div>
 
