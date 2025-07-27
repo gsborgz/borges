@@ -11,10 +11,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 function getVariantClasses(variant: ButtonProps['variant'], primary?: boolean) {
   const defaultBackground = primary
-    ? 'bg-slate-950 dark:bg-slate-50 hover:bg-slate-700 dark:hover:bg-slate-300 text-primary-reversed'
-    : 'hover:bg-slate-300 dark:hover:bg-slate-700 text-primary';
+    ? 'bg-slate-950 dark:bg-slate-50 text-primary-reversed'
+    : 'hover:bg-slate-300/30 dark:hover:bg-slate-700/30 text-primary';
   const variants = {
-    ghost: 'hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-950 dark:text-slate-50',
+    ghost: 'hover:bg-slate-300/30 dark:hover:bg-slate-700/30 text-slate-950 dark:text-slate-50',
     default: defaultBackground
   };
   return variants[variant || 'default'];
