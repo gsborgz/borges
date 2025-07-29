@@ -1,8 +1,12 @@
+'use client';
+
 import { Moon, Sun } from 'lucide-react';
 import { Button } from '@components/ui/Button';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function ThemeToggle() {
+  const { t } = useTranslation();
   const [isDark, setIsDark] = useState(false);
   const sun = <Sun className='h-4 w-4 text-gray-950 dark:text-gray-50' />;
   const moon = <Moon className='h-4 w-4 text-gray-950 dark:text-gray-50' />;
@@ -40,6 +44,7 @@ export default function ThemeToggle() {
       size='icon'
       aria-label='Change Theme'
       onClick={toggleTheme}
+      title={t('toggleTheme')}
     >
       {isDark ? moon : sun}
       <span className='sr-only'>Toggle theme</span>

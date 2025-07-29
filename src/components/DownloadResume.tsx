@@ -8,7 +8,7 @@ import { Button } from '@components/ui/Button';
 import { ResumeData, useResume } from '@hooks/useResume';
 import { useTranslation } from 'react-i18next';
 
-export function ResumeDownload() {
+export function DownloadResume() {
   const { t } = useTranslation();
   const resumeData = useResume();
   const resumeRef = useRef<HTMLDivElement>(null);

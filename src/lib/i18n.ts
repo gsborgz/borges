@@ -112,7 +112,10 @@ const resources = {
           description: 'Curso técnico focado em desenvolvimento de aplicações web e desktop.',
           period: 'Fev 2017 - Nov 2018',
         }
-      }
+      },
+      downloadResume: 'Baixar Currículo',
+      toggleLanguage: 'Alternar Idioma',
+      toggleTheme: 'Alternar Tema',
     },
   },
   en: {
@@ -182,7 +185,10 @@ const resources = {
           description: 'Technical course focused on web and desktop application development.',
           period: 'Feb 2017 - Nov 2018',
         }
-      }
+      },
+      downloadResume: 'Download Resume',
+      toggleLanguage: 'Toggle Language',
+      toggleTheme: 'Toggle Theme',
     },
   },
   fr: {
@@ -252,7 +258,10 @@ const resources = {
           description: 'Formation technique axée sur le développement d’applications web et desktop.',
           period: 'Fév. 2017 - Nov. 2018',
         }
-      }
+      },
+      downloadResume: 'Télécharger le CV',
+      toggleLanguage: 'Changer de Langue',
+      toggleTheme: 'Changer de Thème',
     },
   },
 };
