@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div className='container max-w-4xl mx-auto py-8 space-y-8'>
-      <div className='flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left'>
+      <div className='flex flex-col md:flex-row items-center justify-center gap-8 text-center'>
         <Image
           src={currentImage}
           alt='Gabriel da Silva Borges'
@@ -40,7 +40,7 @@ export default function Home() {
           onClick={() => setCurrentImage(currentImage === '/borges.png' ? '/borges_drawing.png' : '/borges.png')}
         />
 
-        <div className='cursor-default flex flex-col space-y-2'>
+        <div className='cursor-default flex flex-col space-y-2 justify-center md:justify-start items-center md:items-start'>
           <h1 className='text-4xl font-bold tracking-tight text-primary transition-all duration-300 hover:-translate-y-1'>GABRIEL DA SILVA BORGES</h1>
           <p className='text-xl text-muted-foreground font-medium text-secondary transition-all duration-300 hover:-translate-y-1 w-fit'>{role}</p>
         </div>
