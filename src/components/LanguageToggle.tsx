@@ -54,7 +54,7 @@ export function LanguageToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='ghost' size='icon'>
+        <Button variant='ghost' size='icon' title={t('toggleLanguage')}>
           <Languages className='h-4 w-4 text-gray-950 dark:text-gray-50' />
           <span className='sr-only'>Toggle language</span>
         </Button>

@@ -11,12 +11,7 @@ const nextConfig = {
     CONTACT_ADDRESS_COUNTRY_PT: process.env.CONTACT_ADDRESS_COUNTRY_PT,
     CONTACT_ADDRESS_COUNTRY_EN: process.env.CONTACT_ADDRESS_COUNTRY_EN,
     CONTACT_ADDRESS_COUNTRY_FR: process.env.CONTACT_ADDRESS_COUNTRY_FR,
-  },
-  images: {
-    domains: [
-      'media.istockphoto.com',
-    ],
-  },
+  }
 }
 
 module.exports = nextConfig

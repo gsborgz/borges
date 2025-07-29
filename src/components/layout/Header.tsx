@@ -5,6 +5,7 @@ import ThemeToggle from '@components/ThemeToggle';
 import { LanguageToggle } from '@components/LanguageToggle';
 import { Button } from '@components/ui/Button';
 import { useTranslation } from 'react-i18next';
+import { ResumeDownload } from '@components/ResumeDownload';
 
 export default function Header() {
   const { t } = useTranslation();
@@ -34,6 +35,7 @@ export default function Header() {
       </div>
 
       <div className='flex items-center justify-end gap-2 px-4 py-3'>
+        {isHome && <ResumeDownload />}
         <LanguageToggle />
         <ThemeToggle />
       </div>

@@ -1,6 +1,49 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+function numberToText(num: number, locale: string): string {
+  const formatters: Record<string, Record<number, string>> = {
+    pt: {
+      0: 'zero', 1: 'um', 2: 'dois', 3: 'três', 4: 'quatro', 5: 'cinco',
+      6: 'seis', 7: 'sete', 8: 'oito', 9: 'nove', 10: 'dez',
+      11: 'onze', 12: 'doze', 13: 'treze', 14: 'quatorze', 15: 'quinze',
+      16: 'dezesseis', 17: 'dezessete', 18: 'dezoito', 19: 'dezenove', 20: 'vinte'
+    },
+    en: {
+      0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five',
+      6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten',
+      11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen',
+      16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen', 20: 'twenty'
+    },
+    fr: {
+      0: 'zéro', 1: 'un', 2: 'deux', 3: 'trois', 4: 'quatre', 5: 'cinq',
+      6: 'six', 7: 'sept', 8: 'huit', 9: 'neuf', 10: 'dix',
+      11: 'onze', 12: 'douze', 13: 'treize', 14: 'quatorze', 15: 'quinze',
+      16: 'seize', 17: 'dix-sept', 18: 'dix-huit', 19: 'dix-neuf', 20: 'vingt'
+    }
+  };
+
+  return formatters[locale]?.[num] || num.toString();
+}
+
+const currentDate = new Date();
+const workStartDate = new Date('2019-02-01');
+const remoteWorkStartDate = new Date('2020-03-01');
+const yearsOfExperience = Math.floor((currentDate.getTime() - workStartDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25));
+const yearsOfRemoteExperience = Math.floor((currentDate.getTime() - remoteWorkStartDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25));
+const yearsOfExperiencePT = numberToText(yearsOfExperience, 'pt');
+const yearsOfExperienceEN = numberToText(yearsOfExperience, 'en');
+const yearsOfExperienceFR = numberToText(yearsOfExperience, 'fr');
+const yearsOfRemoteExperiencePT = numberToText(yearsOfRemoteExperience, 'pt');
+const yearsOfRemoteExperienceEN = numberToText(yearsOfRemoteExperience, 'en');
+const yearsOfRemoteExperienceFR = numberToText(yearsOfRemoteExperience, 'fr');
+
+const city = process.env.CONTACT_ADDRESS_CITY || '';
+const state = process.env.CONTACT_ADDRESS_STATE || '';
+const countryPT = process.env.CONTACT_ADDRESS_COUNTRY_PT || '';
+const countryEN = process.env.CONTACT_ADDRESS_COUNTRY_EN || '';
+const countryFR = process.env.CONTACT_ADDRESS_COUNTRY_FR || '';
+
 const resources = {
   pt: {
     translation: {
@@ -9,13 +52,13 @@ const resources = {
       role: 'Programador',
       summary: {
         title: 'Resumo Profissional',
-        description: 'Trabalho na área de desenvolvimento web há 6 anos e estou sempre em busca de um conhecimento a mais, seja na área da programação ou até em áreas que possuem quase nenhuma relação com isso. Acumulo experiências com tecnologias diversas, apesar de algumas delas serem apenas em projetos pessoais que normalmente desenvolvo para aprender e desenvolver novos conhecimentos.',
+        description: `Trabalho na área de desenvolvimento web há ${yearsOfExperiencePT} anos e estou sempre em busca de um conhecimento a mais, seja na área da programação ou até em áreas que possuem quase nenhuma relação com isso. Acumulo experiências com tecnologias diversas, apesar de algumas delas serem apenas em projetos pessoais que normalmente desenvolvo para aprender e desenvolver novos conhecimentos. Atualmente, moro em ${city}, ${state}, ${countryPT} e trabalho remotamente há ${yearsOfRemoteExperiencePT} anos.`,
       },
       contact: {
         title: 'Contato',
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
-        address: `${process.env.CONTACT_ADDRESS_CITY}, ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_COUNTRY_PT}`,
+        address: `${city}, ${state}, ${countryPT}`,
       },
       skills: {
         title: 'Habilidades',
@@ -37,7 +80,7 @@ const resources = {
       experiences: {
         title: 'Experiências de Trabalho',
         baseb: {
-          company: 'BaseB',
+          company: 'Base-B',
           role: 'Desenvolvedor Full Stack',
           period: 'Out 2021 - Presente',
           description: 'Realizando implementações no sistema Base-B utilizando principalmente frameworks como NestJS e Angular. Pude atuar no desenvolvimento de projetos importantes como Gestão de Licitação e Consulta de Documentos Públicos. Também realizei a implementação de testes unitários e e2e utilizando o test runner nativo do Node.',
@@ -54,6 +97,21 @@ const resources = {
           period: 'Mar 2019 - Dez 2020',
           description: 'Atuei no desenvolvimento de parte da nova versão do sistema RotaExata, utilizando diversas tecnologias como Node, Vue, Postgres, Mongo etc. Também realizei pequenas atividades no sistema interno da empresa, desenvolvido em PHP.',
         }
+      },
+      study: {
+        title: 'Formação',
+        tads: {
+          institution: 'Unisenai Santa Catarina',
+          course: 'Tecnólogo em Análise e Desenvolvimento de Sistemas',
+          description: 'Curso superior focado no desenvolvimento de aplicações web.',
+          period: 'Fev 2019 - Nov 2021',
+        },
+        tecInfo: {
+          course: 'Técnico em Informática',
+          institution: 'SENAI/SC',
+          description: 'Curso técnico focado em desenvolvimento de aplicações web e desktop.',
+          period: 'Fev 2017 - Nov 2018',
+        }
       }
     },
   },
@@ -64,13 +122,13 @@ const resources = {
       role: 'Programmer',
       summary: {
         title: 'Professional Summary',
-        description: "I've been working in web development for six years, and I'm always looking for something new to learn, whether it's related to programming or not. I've gained experience with a variety of technologies, including some from personal projects that I do to learn and develop skills.",
+        description: `I've been working in web development for ${yearsOfExperienceEN} years, and I'm always looking for something new to learn, whether it's related to programming or not. I've gained experience with a variety of technologies, including some from personal projects that I do to learn and develop skills. Currently, I live in ${city}, ${state}, ${countryEN} and have been working remotely for ${yearsOfRemoteExperienceEN} years.`,
       },
       contact: {
         title: 'Contact',
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
-        address: `${process.env.CONTACT_ADDRESS_CITY}, ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_COUNTRY_EN}`,
+        address: `${city}, ${state}, ${countryEN}`,
       },
       skills: {
         title: 'Skills',
@@ -92,7 +150,7 @@ const resources = {
       experiences: {
         title: 'Work Experiences',
         baseb: {
-          company: 'BaseB',
+          company: 'Base-B',
           role: 'Full Stack Developer',
           period: 'Oct 2021 - Present',
           description: "Working with implementations on the Base-B system using frameworks like NestJS and Angular. I've worked on the development of important projects like BI, Bidding Management and Public Documents Consulting. I also implemented unit and e2e tests using node native test runner.",
@@ -109,6 +167,21 @@ const resources = {
           period: 'Mar 2019 - Dec 2020',
           description: 'Worked on the front-end of a new version for the RotaExata system, built with Vuejs and Vuetify. Also worked a little bit on the back-end for this new version, built with technologies like Node.js,Postgres and MongoDB.',
         }
+      },
+      study: {
+        title: 'Education',
+        tads: {
+          institution: 'Unisenai Santa Catarina',
+          course: 'Technologist in Analysis and Development of Systems',
+          description: 'Higher education focused on web application development.',
+          period: 'Feb 2019 - Nov 2021',
+        },
+        tecInfo: {
+          course: 'Technician in Computer Science',
+          institution: 'SENAI/SC',
+          description: 'Technical course focused on web and desktop application development.',
+          period: 'Feb 2017 - Nov 2018',
+        }
       }
     },
   },
@@ -119,13 +192,13 @@ const resources = {
       role: 'Programmeur',
       summary: {
         title: 'Résumé Professionnel',
-        description: "Je travaille dans le développement web depuis six ans et je suis constamment à la recherche de nouveles connaissances, que ce soit en programmation ou dans d'autres domaines. J’ai acquis de l’expérience avec diverses technologies, notamment à travers des projets personnels que je réalise pour apprendre et progresser.",
+        description: `Je travaille dans le développement web depuis ${yearsOfExperienceFR} ans et je suis constamment à la recherche de nouvelles connaissances, que ce soit en programmation ou dans d'autres domaines. J’ai acquis de l’expérience avec diverses technologies, notamment à travers des projets personnels que je réalise pour apprendre et progresser. Actuellement, je vis à ${city}, ${state}, ${countryFR} et je travaille à distance depuis ${yearsOfRemoteExperienceFR} ans.`,
       },
       contact: {
         title: 'Contact',
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
-        address: `${process.env.CONTACT_ADDRESS_CITY}, ${process.env.CONTACT_ADDRESS_STATE}, ${process.env.CONTACT_ADDRESS_COUNTRY_FR}`,
+        address: `${city}, ${state}, ${countryFR}`,
       },
       skills: {
         title: 'Compétences',
@@ -147,7 +220,7 @@ const resources = {
       experiences: {
         title: 'Expériences de Travail',
         baseb: {
-          company: 'BaseB',
+          company: 'Base-B',
           role: 'Développeur Full Stack',
           period: 'Oct. 2021 - Présent',
           description: "Participation au développement de fonctionnalités clés du système Base-B à l’aide de NestJS et Angular, incluant la BI, la gestion des appels d’offres et la consultation de documents publics. Mise en place de tests unitaires et end-to-end avec le test runner natif de Node.js.",
@@ -163,6 +236,21 @@ const resources = {
           role: 'Développeur Full Stack',
           period: 'Mars 2019 - Déc. 2020',
           description: "Travail sur le front-end d’une nouvelle version du système RotaExata avec Vue.js et Vuetify, ainsi qu’un peu sur le back-end utilisant Node.js, Postgres et MongoDB.",
+        }
+      },
+      study: {
+        title: 'Formation',
+        tads: {
+          institution: 'Unisenai Santa Catarina',
+          course: 'Technologue en Analyse et Développement de Systèmes',
+          description: 'Formation supérieure axée sur le développement d’applications web.',
+          period: 'Fév. 2019 - Nov. 2021',
+        },
+        tecInfo: {
+          course: 'Technicien en Informatique',
+          institution: 'SENAI/SC',
+          description: 'Formation technique axée sur le développement d’applications web et desktop.',
+          period: 'Fév. 2017 - Nov. 2018',
         }
       }
     },

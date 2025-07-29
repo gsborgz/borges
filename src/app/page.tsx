@@ -1,46 +1,32 @@
 'use client'
 
-import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
+import { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Card, { CardTitle } from '@components/ui/Card';
 import Badge from '@components/ui/Badge';
-import Separator from '@components/ui/Separator';
-import { useState } from 'react';
+import Separator from '@components/ui/Separator'
+import { useResume } from '@hooks/useResume';
 
 export default function Home() {
   const [currentImage, setCurrentImage] = useState('/borges.png');
-  const { t } = useTranslation();
-  const skills = [
-    t('skills.typescript'),
-    t('skills.python'),
-    t('skills.nextjs'),
-    t('skills.csharp'),
-    t('skills.angular'),
-    t('skills.mysql'),
-    t('skills.react'),
-    t('skills.postgres'),
-  ];
-  const experiences = [
-    {
-      company: t('experiences.baseb.company'),
-      role: t('experiences.baseb.role'),
-      period: t('experiences.baseb.period'),
-      description: t('experiences.baseb.description'),
-    },
-    {
-      company: t('experiences.sofit.company'),
-      role: t('experiences.sofit.role'),
-      period: t('experiences.sofit.period'),
-      description: t('experiences.sofit.description'),
-    },
-    {
-      company: t('experiences.rotaexata.company'),
-      role: t('experiences.rotaexata.role'),
-      period: t('experiences.rotaexata.period'),
-      description: t('experiences.rotaexata.description'),
-    },
-  ];
+  const {
+    skills,
+    languageSkills,
+    experiences,
+    courses,
+    role,
+    skillsTitle,
+    languageSkillsTitle,
+    contactTitle,
+    contactPhone,
+    contactEmail,
+    contactAddress,
+    studyTitle,
+    summaryTitle,
+    summaryDescription,
+    experiencesTitle
+  } = useResume();
 
   return (
     <div className='container max-w-4xl mx-auto py-8 space-y-8'>
@@ -56,14 +42,14 @@ export default function Home() {
 
         <div className='cursor-default flex flex-col space-y-2'>
           <h1 className='text-4xl font-bold tracking-tight text-primary transition-all duration-300 hover:-translate-y-1'>GABRIEL DA SILVA BORGES</h1>
-          <p className='text-xl text-muted-foreground font-medium text-secondary transition-all duration-300 hover:-translate-y-1 w-fit'>{t('role')}</p>
+          <p className='text-xl text-muted-foreground font-medium text-secondary transition-all duration-300 hover:-translate-y-1 w-fit'>{role}</p>
         </div>
       </div>
 
       <div className='grid gap-8 md:grid-cols-3'>
         <div className='space-y-6'>
           <Card>
-            <CardTitle>{t('skills.title')}</CardTitle>
+            <CardTitle>{skillsTitle}</CardTitle>
             <div className='flex flex-wrap gap-2'>
               {skills.map((skill) => (
                 <Badge key={skill}>
@@ -74,41 +60,55 @@ export default function Home() {
           </Card>
 
           <Card>
-            <CardTitle>{t('languageSkills.title')}</CardTitle>
+            <CardTitle>{languageSkillsTitle}</CardTitle>
             <div className='flex flex-col space-y-2'>
-              <div className='text-sm text-primary'>{t('languageSkills.portuguese')}</div>
-              <div className='text-sm text-primary'>{t('languageSkills.english')}</div>
-              <div className='text-sm text-primary'>{t('languageSkills.french')}</div>
+              {languageSkills.map((language) => (
+                <div key={language} className='text-sm text-primary'>{language}</div>
+              ))}
             </div>
           </Card>
 
           <Card>
-            <CardTitle>{t('contact.title')}</CardTitle>
+            <CardTitle>{contactTitle}</CardTitle>
             <div className='space-y-3 text-2xl'>
               <div className='flex items-center gap-3 text-sm'>
                 <Phone className='h-3 w-3 text-muted-foreground' />
-                <p className='text-primary'>{t('contact.phone')}</p>
+                <p className='text-primary'>{contactPhone}</p>
               </div>
               <div className='flex items-center gap-3 text-sm'>
                 <Mail className='h-3 w-3 text-muted-foreground' />
-                <p className='text-primary break-all'>{t('contact.email')}</p>
+                <p className='text-primary break-all'>{contactEmail}</p>
               </div>
               <div className='flex items-start gap-3 text-sm'>
                 <MapPin className='h-3 w-3 text-muted-foreground mt-0.5' />
-                <p className='leading-relaxed text-primary'>{t('contact.address')}</p>
+                <p className='leading-relaxed text-primary'>{contactAddress}</p>
               </div>
+            </div>
+          </Card>
+
+          <Card>
+            <CardTitle>{studyTitle}</CardTitle>
+            <div className='space-y-2'>
+              {courses.map((course, index) => (
+                <div key={index} className='space-y-1'>
+                  <h3 className='font-semibold text-primary'>{course.institution}</h3>
+                  <p className='text-sm font-medium text-muted-foreground text-secondary'>{course.course}</p>
+                  <p className='text-sm leading-relaxed text-muted-foreground text-secondary'>{course.description}</p>
+                  <span className='text-xs text-muted-foreground text-secondary'>{course.period}</span>
+                </div>
+              ))}
             </div>
           </Card>
         </div>
 
         <div className='md:col-span-2 space-y-6'>
           <Card>
-            <CardTitle>{t('summary.title')}</CardTitle>
-            <p className='text-secondary'>{t('summary.description')}</p>
+            <CardTitle>{summaryTitle}</CardTitle>
+            <p className='text-sm text-secondary'>{summaryDescription}</p>
           </Card>
 
           <Card>
-            <CardTitle className='text-lg'>{t('experiences.title')}</CardTitle>
+            <CardTitle className='text-lg'>{experiencesTitle}</CardTitle>
 
             <div className='space-y-6'>
               {experiences.map((exp, index) => (
