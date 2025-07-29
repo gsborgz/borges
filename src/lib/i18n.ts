@@ -70,6 +70,9 @@ const resources = {
         mysql: 'MySQL',
         react: 'React',
         postgres: 'Postgres',
+        nestjs: 'NestJS',
+        unity: 'Unity',
+        docker: 'Docker',
       },
       languageSkills: {
         title: 'Idiomas',
@@ -143,6 +146,9 @@ const resources = {
         mysql: 'MySQL',
         react: 'React',
         postgres: 'Postgres',
+        nestjs: 'NestJS',
+        unity: 'Unity',
+        docker: 'Docker',
       },
       languageSkills: {
         title: 'Languages',
@@ -175,14 +181,14 @@ const resources = {
         title: 'Education',
         tads: {
           institution: 'Unisenai Santa Catarina',
-          course: 'Technologist in Analysis and Development of Systems',
-          description: 'Higher education focused on web application development.',
+          course: 'Technologist in Systems Analysis and Development',
+          description: 'Higher education course with a focus on web application development.',
           period: 'Feb 2019 - Nov 2021',
         },
         tecInfo: {
-          course: 'Technician in Computer Science',
+          course: 'Technical Course in Information Technology',
           institution: 'SENAI/SC',
-          description: 'Technical course focused on web and desktop application development.',
+          description: 'Technical course with a focus on desktop and web applications development.',
           period: 'Feb 2017 - Nov 2018',
         }
       },
@@ -216,6 +222,9 @@ const resources = {
         mysql: 'MySQL',
         react: 'React',
         postgres: 'Postgres',
+        nestjs: 'NestJS',
+        unity: 'Unity',
+        docker: 'Docker',
       },
       languageSkills: {
         title: 'Langues',
@@ -249,13 +258,13 @@ const resources = {
         tads: {
           institution: 'Unisenai Santa Catarina',
           course: 'Technologue en Analyse et Développement de Systèmes',
-          description: 'Formation supérieure axée sur le développement d’applications web.',
+          description: 'Diplôme de technicien supérieur en Analyse et Développement de Systèmes, avec une spécialisation dans le développement d’applications web.',
           period: 'Fév. 2019 - Nov. 2021',
         },
         tecInfo: {
           course: 'Technicien en Informatique',
           institution: 'SENAI/SC',
-          description: 'Formation technique axée sur le développement d’applications web et desktop.',
+          description: 'Formation technique avec une spécialisation dans le développement d’applications desktop et web.',
           period: 'Fév. 2017 - Nov. 2018',
         }
       },
