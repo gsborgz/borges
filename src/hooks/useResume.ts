@@ -57,6 +57,9 @@ export function useResume() {
     t('skills.mysql'),
     t('skills.react'),
     t('skills.postgres'),
+    t('skills.nestjs'),
+    t('skills.unity'),
+    t('skills.docker'),
   ];
   const languageSkills = [
     t('languageSkills.portuguese'),
