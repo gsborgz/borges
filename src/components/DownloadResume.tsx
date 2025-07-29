@@ -236,10 +236,10 @@ function ResumePDFVersion({ data }: { data: ResumeData }) {
               {courses.map((course: any, index: number) => (
                 <div key={index} style={{ marginBottom: '12px', fontSize: '11px' }}>
                   <h3 style={sectionSecondaryTitleStyle}>
-                    {course.institution}
+                    {course.course}
                   </h3>
                   <p style={sectionTextStyle}>
-                    {course.course}
+                    {course.institution}
                   </p>
                   <p style={sectionTextStyle}>
                     {course.description}
