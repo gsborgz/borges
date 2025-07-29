@@ -49,6 +49,24 @@ export default function Home() {
       <div className='grid gap-8 md:grid-cols-3'>
         <div className='space-y-6'>
           <Card>
+            <CardTitle>{contactTitle}</CardTitle>
+            <div className='space-y-3 text-2xl'>
+              <div className='flex items-center gap-3 text-sm'>
+                <Phone className='h-3 w-3 text-muted-foreground' />
+                <p className='text-primary'>{contactPhone}</p>
+              </div>
+              <div className='flex items-center gap-3 text-sm'>
+                <Mail className='h-3 w-3 text-muted-foreground' />
+                <p className='text-primary break-all'>{contactEmail}</p>
+              </div>
+              <div className='flex items-start gap-3 text-sm'>
+                <MapPin className='h-3 w-3 text-muted-foreground mt-0.5' />
+                <p className='leading-relaxed text-primary'>{contactAddress}</p>
+              </div>
+            </div>
+          </Card>
+
+          <Card>
             <CardTitle>{skillsTitle}</CardTitle>
             <div className='flex flex-wrap gap-2'>
               {skills.map((skill) => (
@@ -65,24 +83,6 @@ export default function Home() {
               {languageSkills.map((language) => (
                 <div key={language} className='text-sm text-primary'>{language}</div>
               ))}
-            </div>
-          </Card>
-
-          <Card>
-            <CardTitle>{contactTitle}</CardTitle>
-            <div className='space-y-3 text-2xl'>
-              <div className='flex items-center gap-3 text-sm'>
-                <Phone className='h-3 w-3 text-muted-foreground' />
-                <p className='text-primary'>{contactPhone}</p>
-              </div>
-              <div className='flex items-center gap-3 text-sm'>
-                <Mail className='h-3 w-3 text-muted-foreground' />
-                <p className='text-primary break-all'>{contactEmail}</p>
-              </div>
-              <div className='flex items-start gap-3 text-sm'>
-                <MapPin className='h-3 w-3 text-muted-foreground mt-0.5' />
-                <p className='leading-relaxed text-primary'>{contactAddress}</p>
-              </div>
             </div>
           </Card>
 
