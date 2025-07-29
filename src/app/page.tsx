@@ -91,8 +91,8 @@ export default function Home() {
             <div className='space-y-2'>
               {courses.map((course, index) => (
                 <div key={index} className='space-y-1'>
-                  <h3 className='font-semibold text-primary'>{course.institution}</h3>
-                  <p className='text-sm font-medium text-muted-foreground text-secondary'>{course.course}</p>
+                  <h3 className='font-semibold text-primary'>{course.course}</h3>
+                  <p className='text-sm font-medium text-muted-foreground text-secondary'>{course.institution}</p>
                   <p className='text-sm leading-relaxed text-muted-foreground text-secondary'>{course.description}</p>
                   <span className='text-xs text-muted-foreground text-secondary'>{course.period}</span>
                 </div>
