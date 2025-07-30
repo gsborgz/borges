@@ -1,7 +1,7 @@
 'use client'
 
-import { CloudDownload } from 'lucide-react';
-import { CSSProperties, useRef } from 'react';
+import { CloudDownload, Mail, MapPin, Phone } from 'lucide-react';
+import { CSSProperties, JSX, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Button } from '@components/ui/Button';
@@ -17,7 +17,7 @@ export function DownloadResume() {
 
     try {
       const canvas = await html2canvas(resumeRef.current, {
-        scale: 4,
+        scale: 2,
         useCORS: true,
         allowTaint: true,
         width: resumeRef.current.scrollWidth,
@@ -61,6 +61,12 @@ export function DownloadResume() {
 }
 
 function HiddenResumeRender({ resumeData, resumeRef }: { resumeData: ResumeData, resumeRef: React.RefObject<HTMLDivElement> }) {
+  const icon = {
+    phone: <Phone style={{ height: '12px', width: '12px' }} />,
+    email: <Mail style={{ height: '12px', width: '12px' }} />,
+    address: <MapPin style={{ height: '12px', width: '12px' }} />
+  };
+  
   return (
     <div 
       ref={resumeRef} 
@@ -80,12 +86,12 @@ function HiddenResumeRender({ resumeData, resumeRef }: { resumeData: ResumeData,
         boxSizing: 'border-box' // Incluir padding no cálculo da largura
       }}
     >
-      <ResumePDFVersion data={resumeData} />
+      <ResumePDFVersion data={resumeData} icon={icon} />
     </div>
   );
 }
 
-function ResumePDFVersion({ data }: { data: ResumeData }) {
+function ResumePDFVersion({ data, icon }: { data: ResumeData, icon: { phone: JSX.Element, email: JSX.Element, address: JSX.Element } }) {
   const {
     skills,
     languageSkills,
@@ -185,16 +191,16 @@ function ResumePDFVersion({ data }: { data: ResumeData }) {
                 {contactTitle}
               </h2>
               <div style={sectionTextStyle}>
-                <p style={{ margin: '4px 0', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ marginRight: '6px' }}>📞</span>
+                <p style={{ margin: '4px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ height: '12px', width: '12px', marginTop: '12px' }}>{icon.phone}</span>
                   {contactPhone}
                 </p>
-                <p style={{ margin: '4px 0', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ marginRight: '6px' }}>✉️</span>
+                <p style={{ margin: '4px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ height: '12px', width: '12px', marginTop: '12px' }}>{icon.email}</span>
                   {contactEmail}
                 </p>
-                <p style={{ margin: '4px 0', display: 'flex', alignItems: 'flex-start' }}>
-                  <span style={{ marginRight: '6px', marginTop: '1px' }}>📍</span>
+                <p style={{ margin: '4px 0', display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
+                  <span style={{ height: '12px', width: '12px', marginTop: '12px' }}>{icon.address}</span>
                   {contactAddress}
                 </p>
               </div>
