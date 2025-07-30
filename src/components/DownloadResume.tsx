@@ -5,9 +5,11 @@ import jsPDF from 'jspdf';
 import { Button } from '@components/ui/Button';
 import { useResume } from '@hooks/useResume';
 import { useTranslation } from 'react-i18next';
+import i18n from '../lib/i18n';
 
 export function DownloadResume() {
   const { t } = useTranslation();
+  const currentLanguage = i18n.language || 'pt';
   const resumeData = useResume();
   
   const handleDownload = async () => {
@@ -235,7 +237,7 @@ export function DownloadResume() {
         }
       });
       
-      pdf.save('gabriel_silva_borges.pdf');
+      pdf.save(`gabriel_silva_borges_${currentLanguage}.pdf`);
     } catch (error) {
       console.error('Erro ao gerar PDF:', error);
     }
