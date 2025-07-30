@@ -5,7 +5,7 @@ import jsPDF from 'jspdf';
 import { Button } from '@components/ui/Button';
 import { useResume } from '@hooks/useResume';
 import { useTranslation } from 'react-i18next';
-import i18n from '../lib/i18n';
+import i18n from '@lib/i18n';
 
 export function DownloadResume() {
   const { t } = useTranslation();
