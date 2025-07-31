@@ -3,241 +3,16 @@
 import { CloudDownload } from 'lucide-react';
 import jsPDF from 'jspdf';
 import { Button } from '@components/ui/Button';
-import { useResume } from '@hooks/useResume';
+import { ResumeData, useResume } from '@hooks/useResume';
 import { useTranslation } from 'react-i18next';
 import i18n from '@lib/i18n';
 
 export function DownloadResume() {
   const { t } = useTranslation();
-  const currentLanguage = i18n.language || 'pt';
   const resumeData = useResume();
-  
   const handleDownload = async () => {
     try {
-      let yPosition = 25;
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      const margin = 20;
-      const contentWidth = pageWidth - (margin * 2);
-      const primaryColor = [15, 23, 43]; // #0f172b
-      const secondaryColor = [69, 85, 108]; // #45556c
-      const primaryFontSize = 12;
-      const secondaryFontSize = 10.5;
-      const sectionTextFontSize = 9.5;
-      const addTextWithWrap = (text: string, x: number, y: number, maxWidth: number, color: number[] = secondaryColor) => {
-        const fontSize = sectionTextFontSize;
-
-        pdf.setFontSize(fontSize);
-        pdf.setTextColor(color[0], color[1], color[2]);
-
-        const lines = pdf.splitTextToSize(text, maxWidth);
-        const lineHeight = fontSize * 0.35;
-        const requiredHeight = lines.length * lineHeight;
-
-        if (y + requiredHeight > pageHeight - margin) {
-          pdf.addPage();
-          y = margin;
-        }
-
-        pdf.text(lines, x, y);
-
-        return y + requiredHeight;
-      };
-      const checkPageBreak = (currentY: number, requiredSpace: number = 15) => {
-        if (currentY + requiredSpace > pageHeight - margin) {
-          pdf.addPage();
-          return margin;
-        }
-        return currentY;
-      };
-      const addLineSeparator = (x: number, y: number, width: number, style = 1) => {
-        if (style === 1) {
-          pdf.setDrawColor(202, 213, 227); // #cad6e3
-        } else {
-          pdf.setDrawColor(226, 232, 240); // #e2e8f0
-        }
-
-        pdf.line(x, y, x + width, y);
-      };
-      const addSectionTitle = (title: string, x: number, y: number) => {
-        pdf.setFontSize(primaryFontSize);
-        pdf.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-        pdf.text(title.toUpperCase(), x, y);
-      };
-      const setSectionTextStyle = () => {
-        pdf.setFontSize(sectionTextFontSize);
-        pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-      };
-      
-      pdf.setFont('helvetica', 'normal');
-
-      // Header - Nome e Cargo
-      pdf.setFontSize(28);
-      pdf.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-      pdf.text('GABRIEL DA SILVA BORGES', margin, yPosition);
-      yPosition += 7;
-
-      pdf.setFontSize(primaryFontSize);
-      pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-      pdf.text(resumeData.role.toUpperCase(), margin, yPosition);
-      yPosition += 12;
-
-      // Summary
-      addSectionTitle(resumeData.summaryTitle, margin, yPosition);
-
-      yPosition += 2;
-
-      addLineSeparator(margin, yPosition, contentWidth);
-
-      yPosition += 8;
-
-      yPosition = addTextWithWrap(resumeData.summaryDescription, margin, yPosition, contentWidth);
-      yPosition += 10;
-
-      // Layout em duas colunas
-      const leftColumnWidth = 70;
-      const rightColumnWidth = contentWidth - leftColumnWidth - 10;
-      const rightColumnX = margin + leftColumnWidth + 10;
-
-      // Coluna Esquerda
-      let leftY = yPosition;
-
-      // Contato
-      addSectionTitle(resumeData.contactTitle, margin, leftY);
-
-      leftY += 2;
-
-      addLineSeparator(margin, leftY, leftColumnWidth);
-
-      leftY += 8;
-
-      setSectionTextStyle();
-
-      pdf.text(resumeData.contactPhone, margin, leftY);
-      leftY += 6;
-
-      pdf.text(resumeData.contactEmail, margin, leftY);
-      leftY += 6;
-
-      leftY = addTextWithWrap(resumeData.contactAddress, margin, leftY, leftColumnWidth);
-      leftY += 10;
-
-      // Skills
-      addSectionTitle(resumeData.skillsTitle, margin, leftY);
-
-      leftY += 2;
-
-      addLineSeparator(margin, leftY, leftColumnWidth);
-
-      leftY += 8;
-
-      setSectionTextStyle();
-
-      const skills = resumeData.skills.join('  ');
-
-      leftY = addTextWithWrap(skills, margin, leftY, leftColumnWidth);
-
-      leftY += 10;
-      
-      // Languages
-      addSectionTitle(resumeData.languageSkillsTitle, margin, leftY);
-
-      leftY += 2;
-
-      addLineSeparator(margin, leftY, leftColumnWidth);
-
-      leftY += 8;
-
-      setSectionTextStyle();
-
-      pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-      resumeData.languageSkills.forEach((language: string) => {
-        pdf.text(language, margin, leftY);
-        leftY += 6;
-      });
-
-      leftY += 10;
-      
-      // Education
-      addSectionTitle(resumeData.studyTitle, margin, leftY);
-
-      leftY += 2;
-
-      addLineSeparator(margin, leftY, leftColumnWidth);
-
-      leftY += 8;
-
-      setSectionTextStyle();
-      
-      resumeData.courses.forEach((course: any) => {
-        leftY = checkPageBreak(leftY, 25); // Verificar espaço para todo o curso
-
-        pdf.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-        leftY = addTextWithWrap(course.course, margin, leftY, leftColumnWidth, primaryColor);
-        leftY += 2;
-
-        pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-        
-        leftY = addTextWithWrap(course.institution, margin, leftY, leftColumnWidth);
-        leftY += 2;
-        leftY = addTextWithWrap(course.description, margin, leftY, leftColumnWidth);
-        leftY += 2;
-        leftY = addTextWithWrap(course.period, margin, leftY, leftColumnWidth);
-        leftY += 6;
-      });
-      
-      // Coluna Direita
-      let rightY = yPosition;
-      
-      // Experiences
-      addSectionTitle(resumeData.experiencesTitle, rightColumnX, rightY);
-
-      rightY += 2;
-
-      addLineSeparator(rightColumnX, rightY, rightColumnWidth);
-
-      rightY += 8;
-
-      resumeData.experiences.forEach((exp: any, index: number) => {
-        rightY = checkPageBreak(rightY, 30); // Verificar espaço para toda a experiência
-
-        // Company e Period na mesma linha
-        pdf.setFont('helvetica', 'normal');
-        pdf.setFontSize(secondaryFontSize);
-        pdf.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-        pdf.text(exp.company, rightColumnX, rightY);
-
-        // Period alinhado à direita
-        const periodWidth = pdf.getTextWidth(exp.period);
-
-        pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-        pdf.text(exp.period, rightColumnX + rightColumnWidth - periodWidth, rightY);
-        rightY += 6;
-        
-        // Role
-        pdf.setFont('helvetica', 'normal');
-        pdf.setFontSize(secondaryFontSize);
-        pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-        pdf.text(exp.role, rightColumnX, rightY);
-        rightY += 6;
-
-        setSectionTextStyle();
-
-        // Description
-        rightY = addTextWithWrap(exp.description, rightColumnX, rightY, rightColumnWidth);
-
-        // Separador entre experiências (exceto a última)
-        if (index < resumeData.experiences.length - 1) {
-          rightY += 3;
-
-          addLineSeparator(rightColumnX, rightY, rightColumnWidth, 2);
-
-          rightY += 8;
-        }
-      });
-      
-      pdf.save(`gabriel_silva_borges_${currentLanguage}.pdf`);
+      generatePDF(resumeData);
     } catch (error) {
       console.error('Erro ao gerar PDF:', error);
     }
@@ -255,4 +30,245 @@ export function DownloadResume() {
       <span className='sr-only'>Download Resume</span>
     </Button>
   );
+}
+
+function generatePDF(resumeData: ResumeData) {
+  const currentLanguage = i18n.language || 'pt';
+  const pdf = new jsPDF('p', 'mm', 'a4');
+  const pageWidth = pdf.internal.pageSize.getWidth();
+  const pageHeight = pdf.internal.pageSize.getHeight();
+  const margin = 20;
+  const contentWidth = pageWidth - (margin * 2);
+  const primaryColor = [15, 23, 43]; // #0f172b
+  const secondaryColor = [69, 85, 108]; // #45556c
+  const primaryFontSize = 12;
+  const secondaryFontSize = 10.5;
+  const sectionTextFontSize = 9.5;
+  const leftColumnWidth = 70;
+  const rightColumnWidth = contentWidth - leftColumnWidth - 10;
+  const rightColumnX = margin + leftColumnWidth + 10;
+  const addTextWithWrap = (text: string, x: number, y: number, maxWidth: number, color: number[] = secondaryColor) => {
+    const fontSize = sectionTextFontSize;
+    const lineSpacing = 5; // Espaçamento entre linhas em mm
+
+    pdf.setFontSize(fontSize);
+    pdf.setTextColor(color[0], color[1], color[2]);
+
+    const lines = pdf.splitTextToSize(text, maxWidth);
+    let currentY = y;
+
+    // Verificar se todo o bloco de texto cabe na página
+    const totalHeight = (lines.length - 1) * lineSpacing + fontSize * 0.35;
+    if (currentY + totalHeight > pageHeight - margin) {
+      pdf.addPage();
+      currentY = margin;
+    }
+
+    // Desenhar cada linha individualmente com espaçamento personalizado
+    lines.forEach((line: string, index: number) => {
+      pdf.text(line, x, currentY);
+      if (index < lines.length - 1) {
+        currentY += lineSpacing;
+      }
+    });
+
+    return currentY + fontSize * 0.35; // Retorna a posição após a última linha
+  };
+  const checkPageBreak = (currentY: number, requiredSpace: number = 15) => {
+    if (currentY + requiredSpace > pageHeight - margin) {
+      pdf.addPage();
+      return margin;
+    }
+    return currentY;
+  };
+  const addLineSeparator = (x: number, y: number, width: number, style = 1) => {
+    if (style === 1) {
+      pdf.setDrawColor(202, 213, 227); // #cad6e3
+    } else {
+      pdf.setDrawColor(226, 232, 240); // #e2e8f0
+    }
+
+    pdf.line(x, y, x + width, y);
+  };
+  const addSectionTitle = (title: string, x: number, y: number) => {
+    pdf.setFontSize(primaryFontSize);
+    pdf.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+    pdf.text(title.toUpperCase(), x, y);
+  };
+  const setSectionTextStyle = () => {
+    pdf.setFontSize(sectionTextFontSize);
+    pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+  };
+
+  let yPosition = 25;
+
+  pdf.setFont('helvetica', 'normal');
+
+  // ---- Header ----
+    pdf.setFontSize(28);
+    pdf.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+    pdf.text('GABRIEL DA SILVA BORGES', margin, yPosition);
+    yPosition += 7;
+
+    pdf.setFontSize(primaryFontSize);
+    pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+    pdf.text(resumeData.role.toUpperCase(), margin, yPosition);
+    yPosition += 12;
+  // ----
+
+  // ---- Section: Summary ----
+    addSectionTitle(resumeData.summaryTitle, margin, yPosition);
+
+    yPosition += 2;
+
+    addLineSeparator(margin, yPosition, contentWidth);
+
+    yPosition += 8;
+
+    yPosition = addTextWithWrap(resumeData.summaryDescription, margin, yPosition, contentWidth);
+    yPosition += 10;
+
+    let leftColumnY = yPosition;
+    let rightColumnY = yPosition;
+  // ----
+
+  // ---- Section: Contact ----
+    addSectionTitle(resumeData.contactTitle, margin, leftColumnY);
+
+    leftColumnY += 2;
+
+    addLineSeparator(margin, leftColumnY, leftColumnWidth);
+
+    leftColumnY += 8;
+
+    setSectionTextStyle();
+
+    pdf.text(resumeData.contactPhone, margin, leftColumnY);
+    leftColumnY += 6;
+
+    pdf.text(resumeData.contactEmail, margin, leftColumnY);
+    leftColumnY += 6;
+
+    leftColumnY = addTextWithWrap(resumeData.contactAddress, margin, leftColumnY, leftColumnWidth);
+    leftColumnY += 10;
+  // ----
+
+  // ---- Section: Skills ----
+    addSectionTitle(resumeData.skillsTitle, margin, leftColumnY);
+
+    leftColumnY += 2;
+
+    addLineSeparator(margin, leftColumnY, leftColumnWidth);
+
+    leftColumnY += 8;
+
+    setSectionTextStyle();
+
+    const skills = resumeData.skills.join('  ');
+
+    leftColumnY = addTextWithWrap(skills, margin, leftColumnY, leftColumnWidth);
+
+    leftColumnY += 10;
+  // ----
+  
+  // ---- Section: Languages ----
+    addSectionTitle(resumeData.languageSkillsTitle, margin, leftColumnY);
+
+    leftColumnY += 2;
+
+    addLineSeparator(margin, leftColumnY, leftColumnWidth);
+
+    leftColumnY += 8;
+
+    setSectionTextStyle();
+
+    pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+    resumeData.languageSkills.forEach((language: string) => {
+      pdf.text(language, margin, leftColumnY);
+      leftColumnY += 6;
+    });
+
+    leftColumnY += 6;
+  // ----
+
+  // ---- Section: Education ----
+    addSectionTitle(resumeData.studyTitle, margin, leftColumnY);
+
+    leftColumnY += 2;
+
+    addLineSeparator(margin, leftColumnY, leftColumnWidth);
+
+    leftColumnY += 8;
+
+    setSectionTextStyle();
+    
+    resumeData.courses.forEach((course: any) => {
+      leftColumnY = checkPageBreak(leftColumnY, 25); // Verificar espaço para todo o curso
+
+      pdf.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      leftColumnY = addTextWithWrap(course.course, margin, leftColumnY, leftColumnWidth, primaryColor);
+      leftColumnY += 2;
+
+      pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+      
+      leftColumnY = addTextWithWrap(course.institution, margin, leftColumnY, leftColumnWidth);
+      leftColumnY += 2;
+      leftColumnY = addTextWithWrap(course.description, margin, leftColumnY, leftColumnWidth);
+      leftColumnY += 2;
+      leftColumnY = addTextWithWrap(course.period, margin, leftColumnY, leftColumnWidth);
+      leftColumnY += 6;
+    });
+  //
+
+  // ---- Coluna Direita ----
+
+  // ---- Section: Experiences ----
+    addSectionTitle(resumeData.experiencesTitle, rightColumnX, rightColumnY);
+
+    rightColumnY += 2;
+
+    addLineSeparator(rightColumnX, rightColumnY, rightColumnWidth);
+
+    rightColumnY += 8;
+
+    resumeData.experiences.forEach((exp: any, index: number) => {
+      rightColumnY = checkPageBreak(rightColumnY, 30); // Verificar espaço para toda a experiência
+
+      // Company e Period na mesma linha
+      pdf.setFont('helvetica', 'normal');
+      pdf.setFontSize(secondaryFontSize);
+      pdf.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      pdf.text(exp.company, rightColumnX, rightColumnY);
+
+      // Period alinhado à direita
+      const periodWidth = pdf.getTextWidth(exp.period);
+
+      pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+      pdf.text(exp.period, rightColumnX + rightColumnWidth - periodWidth, rightColumnY);
+      rightColumnY += 6;
+      
+      // Role
+      pdf.setFont('helvetica', 'normal');
+      pdf.setFontSize(secondaryFontSize);
+      pdf.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+      pdf.text(exp.role, rightColumnX, rightColumnY);
+      rightColumnY += 6;
+
+      setSectionTextStyle();
+
+      // Description
+      rightColumnY = addTextWithWrap(exp.description, rightColumnX, rightColumnY, rightColumnWidth);
+
+      // Separador entre experiências (exceto a última)
+      if (index < resumeData.experiences.length - 1) {
+        rightColumnY += 3;
+
+        addLineSeparator(rightColumnX, rightColumnY, rightColumnWidth, 2);
+
+        rightColumnY += 8;
+      }
+    });
+  // ----
+
+  pdf.save(`gabriel_silva_borges_${currentLanguage}.pdf`);
 }
