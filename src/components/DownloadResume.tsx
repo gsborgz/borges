@@ -49,7 +49,7 @@ function generatePDF(resumeData: ResumeData) {
   const rightColumnX = margin + leftColumnWidth + 10;
   const addTextWithWrap = (text: string, x: number, y: number, maxWidth: number, color: number[] = secondaryColor) => {
     const fontSize = sectionTextFontSize;
-    const lineSpacing = 5; // Espaçamento entre linhas em mm
+    const lineSpacing = 5;
 
     pdf.setFontSize(fontSize);
     pdf.setTextColor(color[0], color[1], color[2]);
@@ -57,14 +57,12 @@ function generatePDF(resumeData: ResumeData) {
     const lines = pdf.splitTextToSize(text, maxWidth);
     let currentY = y;
 
-    // Verificar se todo o bloco de texto cabe na página
     const totalHeight = (lines.length - 1) * lineSpacing + fontSize * 0.35;
     if (currentY + totalHeight > pageHeight - margin) {
       pdf.addPage();
       currentY = margin;
     }
 
-    // Desenhar cada linha individualmente com espaçamento personalizado
     lines.forEach((line: string, index: number) => {
       pdf.text(line, x, currentY);
       if (index < lines.length - 1) {
@@ -72,7 +70,7 @@ function generatePDF(resumeData: ResumeData) {
       }
     });
 
-    return currentY + fontSize * 0.35; // Retorna a posição após a última linha
+    return currentY + fontSize * 0.35;
   };
   const checkPageBreak = (currentY: number, requiredSpace: number = 15) => {
     if (currentY + requiredSpace > pageHeight - margin) {
