@@ -52,7 +52,7 @@ const resources = {
       role: 'Programador',
       summary: {
         title: 'Resumo Profissional',
-        description: `Trabalho na área de desenvolvimento web há ${yearsOfExperiencePT} anos e estou sempre em busca de um conhecimento a mais, seja na área da programação ou até em áreas que possuem quase nenhuma relação com isso. Acumulo experiências com tecnologias diversas, apesar de algumas delas serem apenas em projetos pessoais que normalmente desenvolvo para aprender e desenvolver novos conhecimentos. Atualmente, moro em ${city}, ${state}, ${countryPT} e trabalho remotamente há ${yearsOfRemoteExperiencePT} anos.`,
+        description: `Trabalho na área de desenvolvimento web há ${yearsOfExperiencePT} anos e estou sempre em busca de conhecimentos a mais. Acumulo experiências com tecnologias diversas, apesar de algumas delas serem em projetos pessoais que normalmente desenvolvo para aprender e desenvolver novos conhecimentos. Atualmente, moro em ${city}, ${state}, ${countryPT} e trabalho remotamente há ${yearsOfRemoteExperiencePT} anos.`,
       },
       contact: {
         title: 'Contato',
@@ -86,7 +86,7 @@ const resources = {
           company: 'Base-B',
           role: 'Desenvolvedor Full Stack',
           period: 'Out 2021 - Presente',
-          description: 'Realizando implementações no sistema Base-B utilizando principalmente frameworks como NestJS e Angular. Pude atuar no desenvolvimento de projetos importantes como Gestão de Licitação e Consulta de Documentos Públicos. Também realizei a implementação de testes unitários e e2e utilizando o test runner nativo do Node.',
+          description: 'Realizando implementações no sistema Base-B utilizando principalmente frameworks como NestJS e Angular. Atuei no desenvolvimento de projetos importantes como Gestão de Licitação e Consulta de Documentos Públicos. Também realizei a implementação de testes unitários e e2e utilizando o test runner nativo do Node.',
         },
         sofit: {
           company: 'Sofit',
@@ -98,7 +98,7 @@ const resources = {
           company: 'RotaExata',
           role: 'Desenvolvedor Full Stack',
           period: 'Mar 2019 - Dez 2020',
-          description: 'Atuei no desenvolvimento de parte da nova versão do sistema RotaExata, utilizando diversas tecnologias como Node, Vue, Postgres, Mongo etc. Também realizei pequenas atividades no sistema interno da empresa, desenvolvido em PHP.',
+          description: 'Atuei no desenvolvimento de parte da nova versão do sistema RotaExata, utilizando diversas tecnologias como Node, Vue, Postgres, Mongo etc. Também realizei atividades no sistema interno da empresa, desenvolvido em PHP.',
         }
       },
       study: {
@@ -128,7 +128,7 @@ const resources = {
       role: 'Programmer',
       summary: {
         title: 'Professional Summary',
-        description: `I've been working in web development for ${yearsOfExperienceEN} years, and I'm always looking for something new to learn, whether it's related to programming or not. I've gained experience with a variety of technologies, including some from personal projects that I do to learn and develop skills. Currently, I live in ${city}, ${state}, ${countryEN} and have been working remotely for ${yearsOfRemoteExperienceEN} years.`,
+        description: `I've been working in web development for ${yearsOfExperienceEN} years, and I'm always looking for something new to learn. I've gained experience with a variety of technologies, including some from personal projects that I do to learn and develop skills. Currently, I live in ${city}, a large city in the south of ${countryEN} and have been working remotely for ${yearsOfRemoteExperienceEN} years.`,
       },
       contact: {
         title: 'Contact',
@@ -162,7 +162,7 @@ const resources = {
           company: 'Base-B',
           role: 'Full Stack Developer',
           period: 'Oct 2021 - Present',
-          description: "Working with implementations on the Base-B system using frameworks like NestJS and Angular. I've worked on the development of important projects like BI, Bidding Management and Public Documents Consulting. I also implemented unit and e2e tests using node native test runner.",
+          description: "Working with implementations on the Base-B system using frameworks like NestJS and Angular. I've worked on the development of important projects like Bidding Management and Public Documents Consulting. I also implemented unit and e2e tests using node native test runner.",
         },
         sofit: {
           company: 'Sofit',
@@ -174,7 +174,7 @@ const resources = {
           company: 'RotaExata',
           role: 'Full Stack Developer',
           period: 'Mar 2019 - Dec 2020',
-          description: 'Worked on the front-end of a new version for the RotaExata system, built with Vuejs and Vuetify. Also worked a little bit on the back-end for this new version, built with technologies like Node.js,Postgres and MongoDB.',
+          description: 'Worked on the front-end of a new version for the RotaExata system, built with Vuejs and Vuetify. Also worked a little bit on the back-end for this new version, built with technologies like Node.js, Postgres and MongoDB.',
         }
       },
       study: {
@@ -182,7 +182,7 @@ const resources = {
         tads: {
           institution: 'Unisenai Santa Catarina',
           course: 'Technologist in Systems Analysis and Development',
-          description: 'Higher education course with a focus on web application development.',
+          description: 'Higher education course with a focus on web applications development.',
           period: 'Feb 2019 - Nov 2021',
         },
         tecInfo: {
@@ -204,7 +204,7 @@ const resources = {
       role: 'Programmeur',
       summary: {
         title: 'Résumé Professionnel',
-        description: `Je travaille dans le développement web depuis ${yearsOfExperienceFR} ans et je suis constamment à la recherche de nouvelles connaissances, que ce soit en programmation ou dans d'autres domaines. J’ai acquis de l’expérience avec diverses technologies, notamment à travers des projets personnels que je réalise pour apprendre et progresser. Actuellement, je vis à ${city}, ${state}, ${countryFR} et je travaille à distance depuis ${yearsOfRemoteExperienceFR} ans.`,
+        description: `Je travaille dans le développement web depuis ${yearsOfExperienceFR} ans et je suis constamment à la recherche de nouvelles connaissances. J’ai acquis de l’expérience avec diverses technologies, notamment à travers des projets personnels que je réalise pour apprendre et progresser. Actuellement, je vis à ${city}, une grande ville au sud de ${countryFR} et je travaille à distance depuis ${yearsOfRemoteExperienceFR} ans.`,
       },
       contact: {
         title: 'Contact',
@@ -238,7 +238,7 @@ const resources = {
           company: 'Base-B',
           role: 'Développeur Full Stack',
           period: 'Oct. 2021 - Présent',
-          description: "Participation au développement de fonctionnalités clés du système Base-B à l’aide de NestJS et Angular, incluant la BI, la gestion des appels d’offres et la consultation de documents publics. Mise en place de tests unitaires et end-to-end avec le test runner natif de Node.js.",
+          description: "Participation au développement de fonctionnalités clés du système Base-B à l’aide de NestJS et Angular, incluant la gestion des appels d’offres et la consultation de documents publics. Mise en place de tests unitaires et end-to-end avec le test runner natif de Node.js.",
         },
         sofit: {
           company: 'Sofit',
@@ -257,7 +257,7 @@ const resources = {
         title: 'Formation',
         tads: {
           institution: 'Unisenai Santa Catarina',
-          course: 'Technologue en Analyse et Développement de Systèmes',
+          course: 'Technologue en Analyse et Développement des Systèmes',
           description: 'Diplôme de technicien supérieur en Analyse et Développement de Systèmes, avec une spécialisation dans le développement d’applications web.',
           period: 'Fév. 2019 - Nov. 2021',
         },
