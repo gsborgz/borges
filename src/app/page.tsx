@@ -63,6 +63,13 @@ export default function Home() {
                 <MapPin className='h-3 w-3 text-muted-foreground mt-0.5' />
                 <p className='leading-relaxed text-primary'>{contactAddress}</p>
               </div>
+            
+              <Separator />
+
+              <div className='flex items-center justify-center gap-3 text-sm'>
+                <a href='https://linkedin.com/in/gsborgz' target='_blank' rel='noopener noreferrer' className='text-primary hover:underline'>LinkedIn</a>
+                <a href='https://github.com/gsborgz' target='_blank' rel='noopener noreferrer' className='text-primary hover:underline'>GitHub</a>
+              </div>
             </div>
           </Card>
 

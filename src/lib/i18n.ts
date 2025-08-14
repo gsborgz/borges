@@ -59,6 +59,8 @@ const resources = {
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
         address: `${city}, ${state}, ${countryPT}`,
+        linkedin: 'linkedin.com/in/gsborgz',
+        github: 'github.com/gsborgz',
       },
       skills: {
         title: 'Habilidades',
@@ -135,6 +137,8 @@ const resources = {
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
         address: `${city}, ${state}, ${countryEN}`,
+        linkedin: 'linkedin.com/in/gsborgz',
+        github: 'github.com/gsborgz',
       },
       skills: {
         title: 'Skills',
@@ -211,6 +215,8 @@ const resources = {
         phone: `${process.env.CONTACT_PHONE}`,
         email: `${process.env.CONTACT_EMAIL}`,
         address: `${city}, ${state}, ${countryFR}`,
+        linkedin: 'linkedin.com/in/gsborgz',
+        github: 'github.com/gsborgz',
       },
       skills: {
         title: 'Compétences',
