@@ -48,7 +48,6 @@ const resources = {
   pt: {
     translation: {
       home: 'Início',
-      projects: 'Projetos',
       role: 'Programador',
       summary: {
         title: 'Resumo Profissional',
@@ -121,12 +120,19 @@ const resources = {
       downloadResume: 'Baixar Currículo',
       toggleLanguage: 'Alternar Idioma',
       toggleTheme: 'Alternar Tema',
+      projects: {
+        title: 'Projetos',
+        inProgress: 'Em Andamento',
+        pokedex: {
+          title: 'Pokedex',
+          description: 'Uma simples pokedex com um construtor de times (WIP)',
+        },
+      },
     },
   },
   en: {
     translation: {
       home: 'Home',
-      projects: 'Projects',
       role: 'Programmer',
       summary: {
         title: 'Professional Summary',
@@ -199,12 +205,19 @@ const resources = {
       downloadResume: 'Download Resume',
       toggleLanguage: 'Toggle Language',
       toggleTheme: 'Toggle Theme',
+      projects: {
+        title: 'Projects',
+        inProgress: 'In Progress',
+        pokedex: {
+          title: 'Pokedex',
+          description: 'A simple pokedex with a team builder (WIP)',
+        },
+      },
     },
   },
   fr: {
     translation: {
       home: 'Accueil',
-      projects: 'Projets',
       role: 'Programmeur',
       summary: {
         title: 'Résumé Professionnel',
@@ -277,6 +290,14 @@ const resources = {
       downloadResume: 'Télécharger le CV',
       toggleLanguage: 'Changer de Langue',
       toggleTheme: 'Changer de Thème',
+      projects: {
+        title: 'Projets',
+        inProgress: 'En cours',
+        pokedex: {
+          title: 'Pokedex',
+          description: 'Une simple pokedex avec un constructeur de teams (WIP)',
+        },
+      }
     },
   },
 };

@@ -30,7 +30,7 @@ export default function Header() {
         </Button>
 
         <Button variant="default" primary={isProjects} onClick={handleNavigateProjects}>
-          {t('projects')}
+          {t('projects.title')}
         </Button>
       </div>
 
