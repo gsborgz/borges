@@ -2,6 +2,7 @@
 
 import Card from '@components/ui/Card';
 import Image from 'next/image';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface ProjectCardProps {
@@ -48,21 +49,34 @@ function ProjectsSection({ title, children }) {
 }
 
 function ProjectCard({ project }: { project: ProjectCardProps }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <Card onClick={() => window.open(project.link, '_blank')}>
-      <h3 className='font-semibold'>{project.title}</h3>
+    <Card
+      onClick={() => window.open(project.link, '_blank')}
+      className={`cursor-pointer transition-all duration-300 ${hovered ? 'scale-105 shadow-xl' : ''} `}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <h3 className={`font-semibold text-center transition-all duration-300 ${hovered ? 'text-lg' : 'text-base'}`}>
+        {project.title}
+      </h3>
 
       <div className='flex items-center justify-center my-3'>
         <Image
           src={project.imageSrc}
           alt={project.title}
-          width={300}
-          height={300}
-          className='w-30 h-30 rounded-md'
+          width={hovered ? 330 : 300}
+          height={hovered ? 330 : 300}
+          className={`rounded-md transition-all duration-300
+            ${hovered ? 'w-[110px] h-[110px]' : 'w-[100px] h-[100px]'}
+          `}
         />
       </div>
 
-      <p className='text-sm text-secondary text-justify'>{project.description}</p>
+      <p className={`text-sm text-secondary text-justify transition-all duration-300 ${hovered ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'} overflow-hidden`}>
+        {project.description}
+      </p>
     </Card>
   );
 }
