@@ -2,10 +2,7 @@
 
 import Card from '@components/ui/Card';
 import Image from 'next/image';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useIsMobile } from '@hooks/useMobile';
-import Badge from '../../components/ui/Badge';
 
 interface ProjectCardProps {
   title: string;
@@ -21,7 +18,7 @@ export default function Home() {
     {
       title: t('projects.portfolio.title'),
       description: t('projects.portfolio.description'),
-      link: 'https://portfolio.gabrielborges.dev/',
+      link: 'https://gabrielborges.dev/',
       src: '/borges_icon.png',
       skills: [
         { title: 'Next.js', src: '/icons/nextjs.svg' },
@@ -44,7 +41,7 @@ export default function Home() {
 
   return (
     <section className='container max-w-4xl mx-auto py-8 space-y-8'>
-      <div className='flex flex-col'>
+      <div className='flex flex-col h-full'>
         <ProjectsSection title={t('projects.inProgress')}>
           {inProgressProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
@@ -68,34 +65,27 @@ function ProjectsSection({ title, children }) {
 }
 
 function ProjectCard({ project }: { project: ProjectCardProps }) {
-  const [hovered, setHovered] = useState(false);
-  const isMobile = useIsMobile();
-
   return (
     <Card
       onClick={() => window.open(project.link, '_blank')}
-      className={`flex flex-col gap-4 cursor-pointer transition-all duration-300 ${hovered && !isMobile ? 'scale-105 shadow-xl' : ''} `}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className='flex flex-col justify-between cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-xl'
     >
-      <h3 className={`font-semibold text-center transition-all duration-300 ${hovered && !isMobile ? 'text-lg' : 'text-base'}`}>
+      <h3 className='font-semibold text-center transition-all duration-300 text-lg mb-2'>
         {project.title}
       </h3>
 
-      <div className='flex items-center justify-center'>
+      <div className='flex items-center justify-center mb-2'>
         <Image
           src={project.src}
           alt={project.title}
-          width={hovered && !isMobile ? 330 : 300}
-          height={hovered && !isMobile ? 330 : 300}
-          className={`rounded-md transition-all duration-300
-            ${hovered && !isMobile ? 'w-[110px] h-[110px]' : 'w-[100px] h-[100px]'}
-          `}
+          width={300}
+          height={300}
+          className={`rounded-md transition-all duration-300 w-30 h-30`}
         />
       </div>
 
       {!!project.skills.length && (
-        <div className={`flex flex-wrap items-center justify-center gap-2 ${!hovered ? '-mb-4' : ''}`}>
+        <div className='flex flex-wrap items-center justify-center gap-2 mb-2'>
           {project.skills.map((skill, index) => (
             <div key={index} className='rounded-xs p-0.5 bg-slate-100' title={skill.title}>
               <Image
@@ -110,11 +100,9 @@ function ProjectCard({ project }: { project: ProjectCardProps }) {
         </div>
       )}
 
-      {!isMobile && (
-        <p className={`text-sm text-secondary text-justify transition-all duration-300 ${hovered ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0'} overflow-hidden`}>
-          {project.description}
-        </p>
-      )}
+      <p className='text-sm text-secondary text-justify transition-all duration-300 opacity-100 max-h-40 overflow-hidden'>
+        {project.description}
+      </p>
     </Card>
   );
 }
