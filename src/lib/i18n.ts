@@ -124,7 +124,7 @@ const resources = {
         title: 'Projetos',
         inProgress: 'Em Andamento',
         pokedex: {
-          title: 'Pokedex (WIP)',
+          title: 'Pokedex',
           description: 'Uma simples pokedex com um construtor de times, construída com Next.js e TypeScript.',
         },
         portfolio: {
@@ -213,7 +213,7 @@ const resources = {
         title: 'Projects',
         inProgress: 'In Progress',
         pokedex: {
-          title: 'Pokedex (WIP)',
+          title: 'Pokedex',
           description: 'A simple pokedex with a team builder, built with Next.js and TypeScript.',
         },
         portfolio: {
@@ -302,7 +302,7 @@ const resources = {
         title: 'Projets',
         inProgress: 'En cours',
         pokedex: {
-          title: 'Pokedex (WIP)',
+          title: 'Pokedex',
           description: 'Une simple pokedex avec un constructeur de teams, construite avec Next.js et TypeScript.',
         },
         portfolio: {
