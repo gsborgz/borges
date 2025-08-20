@@ -78,9 +78,10 @@ function ProjectCard({ project }: { project: ProjectCardProps }) {
         <Image
           src={project.src}
           alt={project.title}
-          width={300}
-          height={300}
-          className={`rounded-md transition-all duration-300 w-30 h-30`}
+          width={100}
+          height={100}
+          quality={100}
+          className={`rounded-md transition-all duration-300 w-25 h-25`}
         />
       </div>
 
