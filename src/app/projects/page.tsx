@@ -87,7 +87,7 @@ function ProjectCard({ project }: { project: ProjectCardProps }) {
       {!!project.skills.length && (
         <div className='flex flex-wrap items-center justify-center gap-2 mb-2'>
           {project.skills.map((skill, index) => (
-            <div key={index} className='rounded-xs p-0.5 bg-slate-100' title={skill.title}>
+            <div key={index} className='rounded-sm p-0.5 dark:bg-slate-100 border border-slate-300' title={skill.title}>
               <Image
                 unoptimized
                 src={skill.src}
