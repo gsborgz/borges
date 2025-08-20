@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <section className='container max-w-4xl mx-auto py-8 space-y-8'>
       <div className='flex flex-col h-full'>
-        <ProjectsSection title={t('projects.inProgress')}>
+        <ProjectsSection title={t('projects.websites')}>
           {inProgressProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
