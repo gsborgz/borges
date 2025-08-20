@@ -127,6 +127,10 @@ const resources = {
           title: 'Pokedex (WIP)',
           description: 'Uma simples pokedex com um construtor de times, construída com Next.js e TypeScript.',
         },
+        portfolio: {
+          title: 'Portfólio (Este site aqui)',
+          description: 'Meu portfólio pessoal, construído com Next.js e TypeScript.',
+        }
       },
     },
   },
@@ -212,6 +216,10 @@ const resources = {
           title: 'Pokedex (WIP)',
           description: 'A simple pokedex with a team builder, built with Next.js and TypeScript.',
         },
+        portfolio: {
+          title: 'Portfolio (This site)',
+          description: 'My personal portfolio, built with Next.js and TypeScript.',
+        }
       },
     },
   },
@@ -297,6 +305,10 @@ const resources = {
           title: 'Pokedex (WIP)',
           description: 'Une simple pokedex avec un constructeur de teams, construite avec Next.js et TypeScript.',
         },
+        portfolio: {
+          title: 'Portfolio (Ce site)',
+          description: 'Mon portfolio personnel, construit avec Next.js et TypeScript.',
+        }
       }
     },
   },
