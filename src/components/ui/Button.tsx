@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { concatClassNames } from '@lib/utils';
+import Link from 'next/link';
 
 // Interfaces e Tipagens
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -7,6 +8,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'icon' | 'default';
   primary?: boolean;
   asChild?: boolean;
+  href?: string;
+  title?: string;
+  onClick?: () => void;
+  ariaLabel?: string;
 }
 
 function getVariantClasses(variant: ButtonProps['variant'], primary?: boolean) {
@@ -28,39 +33,28 @@ function getSizeClasses(size: ButtonProps['size']) {
   return sizes[size || 'default'];
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((
-  { className, variant, size, primary, asChild = false, children, ...props }, ref) => {
-    const baseClasses = 'cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
+export function Button({ className, variant, href, size, primary, children, title, onClick }: ButtonProps) {
+  const baseClasses = 'cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
+  const variantClasses = getVariantClasses(variant, primary);
+  const sizeClasses = getSizeClasses(size);
+  const buttonClasses = concatClassNames(
+    baseClasses,
+    variantClasses,
+    sizeClasses,
+    className
+  );
 
-    const variantClasses = getVariantClasses(variant, primary);
-    const sizeClasses = getSizeClasses(size);
-    
-    const buttonClasses = concatClassNames(
-      baseClasses,
-      variantClasses,
-      sizeClasses,
-      className
-    );
-
-    if (asChild && React.isValidElement(children)) {
-      return React.cloneElement(children as React.ReactElement<any>, {
-        className: buttonClasses,
-        ...props
-      });
-    }
-
+  if (!!href) {
     return (
-      <button
-        className={buttonClasses}
-        ref={ref}
-        {...props}
-      >
+      <Link className={buttonClasses} href={href}>
         {children}
-      </button>
+      </Link>
     );
   }
-);
 
-Button.displayName = 'Button';
-
-export { Button };
+  return (
+    <button className={buttonClasses} onClick={onClick} title={title}>
+      {children}
+    </button>
+  );
+}

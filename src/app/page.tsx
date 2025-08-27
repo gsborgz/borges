@@ -7,6 +7,7 @@ import Card, { CardTitle } from '@components/ui/Card';
 import Badge from '@components/ui/Badge';
 import Separator from '@components/ui/Separator'
 import { useResume } from '@hooks/useResume';
+import Link from 'next/link';
 
 export default function Home() {
   const [currentImage, setCurrentImage] = useState('/borges.png');
@@ -67,8 +68,8 @@ export default function Home() {
               <Separator />
 
               <div className='flex items-center justify-center gap-3 text-sm'>
-                <a href='https://linkedin.com/in/gsborgz' target='_blank' rel='noopener noreferrer' className='text-primary hover:underline'>LinkedIn</a>
-                <a href='https://github.com/gsborgz' target='_blank' rel='noopener noreferrer' className='text-primary hover:underline'>GitHub</a>
+                <Link href='https://linkedin.com/in/gsborgz' target='_blank' rel='noopener noreferrer' className='text-primary hover:underline'>LinkedIn</Link>
+                <Link href='https://github.com/gsborgz' target='_blank' rel='noopener noreferrer' className='text-primary hover:underline'>GitHub</Link>
               </div>
             </div>
           </Card>

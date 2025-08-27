@@ -22,7 +22,7 @@ export function DownloadResume() {
     <Button
       variant='ghost'
       size='icon'
-      aria-label='Download Resume'
+      ariaLabel='Download Resume'
       onClick={() => handleDownload()}
       title={t('downloadResume')}
     >

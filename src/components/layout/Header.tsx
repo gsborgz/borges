@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import ThemeToggle from '@components/ThemeToggle';
 import { LanguageToggle } from '@components/LanguageToggle';
 import { Button } from '@components/ui/Button';
@@ -10,26 +10,17 @@ import { DownloadResume } from '@components/DownloadResume';
 export default function Header() {
   const { t } = useTranslation();
   const currentRoute = usePathname();
-  const router = useRouter();
   const isHome = currentRoute === '/';
   const isProjects = currentRoute === '/projects';
-
-  const handleNavigateHome = () => {
-    router.push('/');
-  };
-
-  const handleNavigateProjects = () => {
-    router.push('/projects');
-  };
 
   return (
     <HeaderBar>
       <div className='flex items-center justify-start gap-2 px-4 py-3'>
-        <Button variant="default" primary={isHome} onClick={handleNavigateHome}>
+        <Button variant="default" primary={isHome} href="/">
           {t('home')}
         </Button>
 
-        <Button variant="default" primary={isProjects} onClick={handleNavigateProjects}>
+        <Button variant="default" primary={isProjects} href="/projects">
           {t('projects.title')}
         </Button>
       </div>
