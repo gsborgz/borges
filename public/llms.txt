@@ -1,0 +1,65 @@
+# Portifólio de Gabriel da Silva Borges
+
+## Informações Gerais
+- Esse site é um portfólio online do Gabriel. Ele é um desenvolvedor Full Stack com 6 anos de experiência no mercado utilizando principalmente JavaScript em projetos diferentes.
+- No canto superior direito do site o usuário pode alterar o idioma, tema e, se estiver na página inicial, ele pode baixar um pdf do currículo de Gabriel (esse pdf virá no idioma selecionado no site).
+
+## Formação acadêmica
+- Curso superior: Gabriel é formado em Tecnólogo em Análise e Desenvolvimento de Sistemas pela Unisenai de Santa Catarina, curso voltado ao desenvolvimento de aplicações web.
+- Curso técnico: Gabriel é formado em Técnico em Informática, curso voltado ao desenvolvimento de aplicações desktop e web.
+
+## Contato
+- Email: borgesgabrielsilva@gmail.com
+- Telefone: +55 (47) 99648-2295
+- LinkedIn: [LinkedIn](https://linkedin.com/in/gsborgz)
+- GitHub: [GitHub](https://github.com/gsborgz)
+
+## Idiomas Falados
+- Gabriel é falante nativo da lingua portuguesa (Brasil), fala Inglês avançado e começou a estudar Francês a pouco tempo.
+
+## Habilidades e Conhecimentos
+- Experiência geral:
+  - CSS
+  - HTML
+  - JavaScript
+  - Node.js
+  - TypeScript
+  - NestJS
+  - Postgres
+  - MySQL
+  - Docker
+  - Angular
+- Somente em projetos pessoais:
+  - Next.js
+  - React
+  - Python
+  - C#
+  - Unity
+
+## Experiências de Trabalho
+### Base-B (Out 2021 - Presente) Desenvolvedor Full Stack
+- Realizando implementações no sistema Base-B utilizando principalmente frameworks como NestJS e Angular. Atuei no desenvolvimento de projetos importantes como Gestão de Licitação e Consulta de Documentos Públicos. Também realizei a implementação de testes unitários e e2e (end-to-end) utilizando o test runner nativo do Node.
+- Habilidades: NestJS, Node.js, Angular, MySQL, Docker, Testes Automatizados, Scrum, Kanban, TypeScript.
+
+### Sofit (Jan 2021 - Set 2021) Desenvolvedor Full Stack
+- Realizei atividades no back-end e no front-end do sistema SofitView com os frameworks Ember.js e NestJS.
+- Habilidades: Ember.js, NestJS, Node.js, TypeScript, Testes Automatizados, Postgres, MongoDB, Scrum, Kanban.
+
+### RotaExata (Mar 2019 - Dez 2020) Desenvolvedor Full Stack
+- Atuei no desenvolvimento de parte da nova versão do sistema RotaExata, utilizando diversas tecnologias como Node, Vue, Postgres, Mongo etc. Também realizei atividades no sistema interno da empresa, desenvolvido em PHP.
+- Habilidades: Node.js, Vue.js, Testes Automatizados, Postgres, MongoDB, Scrum.
+
+- Leia sobre o meu perfil profissional e veja alguns dos meus projetos que desenvolvo para aperfeiçoar meus conhecimentos.
+
+# Sobre este site (Portifólio)
+## Página Inicial
+- Descrição: Tela inicial do site que mostra o currículo de Gabriel da Silva Borges, contendo informaçõe sobre sua carreira profissional.
+- Link: [Início](https://www.gabrielborges.dev/)
+
+## Página de Projetos
+- Descrição: Tela que lista alguns projetos que Gabriel criou para desenvolver conhecimentos técnicos.
+- Link: [Projetos](https://www.gabrielborges.dev/projects)
+- Projetos:
+  - [Portifólio](https://www.gabrielborges.dev/): Site com informações sobre a carreira profissional de Gabriel e alguns projetos que ele criou para desenvolver conhecimentos técnicos
+  - [Pokédex](https://pokedex.gabrielborges.dev): Um site que funciona como uma Pokedex, listando os Pokémon existentes. Também possui um construtor de times simplificado.
+

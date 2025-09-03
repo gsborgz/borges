@@ -6,6 +6,7 @@ import Header from '@components/layout/Header';
 import Main from '@components/layout/Main';
 import Footer from '@components/layout/Footer';
 import { I18nProvider } from '@providers/I18nProvider';
+import ChatWidget from '@components/Chat';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <I18nProvider>
           <Header />
           <Main>{ children }</Main>
+          <ChatWidget />
           <Footer />
         </I18nProvider>
       </body>

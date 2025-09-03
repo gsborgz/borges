@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image';
-import { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Card, { CardTitle } from '@components/ui/Card';
 import Badge from '@components/ui/Badge';
@@ -10,7 +9,6 @@ import { useResume } from '@hooks/useResume';
 import Link from 'next/link';
 
 export default function Home() {
-  const [currentImage, setCurrentImage] = useState('/borges.png');
   const {
     skills,
     languageSkills,
@@ -33,12 +31,11 @@ export default function Home() {
     <div className='container max-w-4xl mx-auto py-8 space-y-8'>
       <div className='flex flex-col md:flex-row items-center justify-center gap-8 text-center'>
         <Image
-          src={currentImage}
+          src='/borges.png'
           alt='Gabriel da Silva Borges'
           width={300}
           height={300}
           className='rounded-full w-50 h-50 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1'
-          onClick={() => setCurrentImage(currentImage === '/borges.png' ? '/borges_drawing.png' : '/borges.png')}
         />
 
         <div className='cursor-default flex flex-col space-y-2 justify-center md:justify-start items-center md:items-start'>

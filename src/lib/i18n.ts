@@ -49,6 +49,14 @@ const resources = {
     translation: {
       home: 'Início',
       role: 'Programador',
+      chat: {
+        title: 'Converse com Borgez',
+        send: 'Enviar',
+        welcomeMessage: 'Olá! Como posso ajudar você hoje?',
+        errorMessage: 'Desculpe, ocorreu um erro ao processar sua solicitação.',
+        typeMessage: 'Digite sua mensagem...',
+        cancel: 'Cancelar',
+      },
       summary: {
         title: 'Resumo Profissional',
         description: `Trabalho na área de desenvolvimento web há ${yearsOfExperiencePT} anos e estou sempre em busca de conhecimentos a mais. Acumulo experiências com tecnologias diversas, apesar de algumas delas serem em projetos pessoais que normalmente desenvolvo para aprender e desenvolver novos conhecimentos. Atualmente, moro em ${city}, ${state}, ${countryPT} e trabalho remotamente há ${yearsOfRemoteExperiencePT} anos.`,
@@ -139,6 +147,14 @@ const resources = {
     translation: {
       home: 'Home',
       role: 'Programmer',
+      chat: {
+        title: 'Talk to Borgez',
+        send: 'Send',
+        welcomeMessage: 'Hello! How can I assist you today?',
+        errorMessage: 'Sorry, there was an error processing your request.',
+        typeMessage: 'Type your message...',
+        cancel: 'Cancel',
+      },
       summary: {
         title: 'Professional Summary',
         description: `I've been working in web development for ${yearsOfExperienceEN} years, and I'm always looking for something new to learn. I've gained experience with a variety of technologies, including some from personal projects that I do to learn and develop skills. Currently, I live in ${city}, a large city in the south of ${countryEN} and have been working remotely for ${yearsOfRemoteExperienceEN} years.`,
@@ -229,6 +245,14 @@ const resources = {
     translation: {
       home: 'Accueil',
       role: 'Programmeur',
+      chat: {
+        title: 'Discuter avec Borgez',
+        send: 'Envoyer',
+        welcomeMessage: 'Bonjour! Comment puis-je vous aider aujourd\'hui?',
+        errorMessage: 'Désolé, une erreur est survenue lors du traitement de votre demande.',
+        typeMessage: 'Tapez votre message...',
+        cancel: 'Annuler',
+      },
       summary: {
         title: 'Résumé Professionnel',
         description: `Je travaille dans le développement web depuis ${yearsOfExperienceFR} ans et je suis constamment à la recherche de nouvelles connaissances. J’ai acquis de l’expérience avec diverses technologies, notamment à travers des projets personnels que je réalise pour apprendre et progresser. Actuellement, je vis à ${city}, une grande ville au sud de ${countryFR} et je travaille à distance depuis ${yearsOfRemoteExperienceFR} ans.`,
