@@ -157,7 +157,7 @@ const resources = {
       },
       summary: {
         title: 'Professional Summary',
-        description: `I've been working in web development for ${yearsOfExperienceEN} years, and I'm always looking for something new to learn. I've gained experience with a variety of technologies, including some from personal projects that I do to learn and develop skills. Currently, I live in ${city}, a large city in the south of ${countryEN} and have been working remotely for ${yearsOfRemoteExperienceEN} years.`,
+        description: `I've been working with web development for ${yearsOfExperienceEN} years, and I'm always looking for something new to learn. I've gained experience with a variety of technologies, including some from personal projects that I do to learn and develop skills. Currently, I live in ${city}, a large city in the south of ${countryEN} and have been working remotely for ${yearsOfRemoteExperienceEN} years.`,
       },
       contact: {
         title: 'Contact',
